@@ -1,9 +1,3 @@
-/* ============================================================
-   THE 25TH ATV — DESIGN SYSTEM
-   Palette: Gold × Espresso (brand-consistent, elevated)
-   Type:    Space Grotesk (display) / Plus Jakarta Sans (body)
-            Fraunces Italic (editorial accent words)
-   ============================================================ */
 :root{
   --gold:#F5A800;
   --gold-hi:#FFD666;
@@ -433,31 +427,33 @@ html[data-theme="light"] .ev-icon{color:var(--gold-deep)}
 .art-cover{
   position:relative;min-height:200px;aspect-ratio:16/8.2;overflow:hidden;display:flex;
   align-items:flex-end;padding:1.4rem;isolation:isolate;
-}
-.art-cover::before{
-  content:"";position:absolute;inset:0;z-index:-1;transition:transform .6s var(--ease);
+  /* fallback look — shows if no photo is set, or while it loads */
   background:
     radial-gradient(120% 130% at 15% 0%,rgba(255,214,102,.34),transparent 55%),
     radial-gradient(110% 120% at 100% 100%,rgba(138,75,15,.55),transparent 60%),
     linear-gradient(150deg,#3A1D09,#170B04);
 }
-html[data-theme="light"] .art-cover::before{
+html[data-theme="light"] .art-cover{
   background:
     radial-gradient(120% 130% at 15% 0%,rgba(255,235,170,.9),transparent 55%),
     radial-gradient(110% 120% at 100% 100%,rgba(201,123,18,.45),transparent 60%),
     linear-gradient(150deg,#F9E4B4,#EFCB86);
 }
-.art-card:hover .art-cover::before{transform:scale(1.07)}
-.art-cover .big-idx{
-  position:absolute;right:.6rem;top:-1.6rem;z-index:-1;
-  font-family:var(--font-d);font-weight:700;font-size:8.5rem;line-height:1;
-  color:transparent;-webkit-text-stroke:1.5px var(--line-strong);letter-spacing:-.04em;
+.art-cover-photo{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;
+  object-fit:cover;transition:transform .6s var(--ease);
+}
+.art-card:hover .art-cover-photo{transform:scale(1.07)}
+.art-cover::before{ /* scrim for text legibility over a photo */
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,5,2,0) 32%,rgba(10,5,2,.82) 100%);
 }
 .satvrday{
+  position:relative;z-index:2;
   font-family:var(--font-d);font-weight:700;letter-spacing:.34em;font-size:.82rem;
   color:var(--gold-hi);text-transform:uppercase;display:flex;align-items:center;gap:.55rem;
 }
-html[data-theme="light"] .satvrday{color:var(--burn)}
+html[data-theme="light"] .satvrday{color:var(--gold-hi)} /* photo sits behind — keep legible on the scrim, not the page theme */
 .satvrday svg{width:16px;height:16px}
 .art-body{padding:1.6rem 1.7rem 1.8rem;display:flex;flex-direction:column;flex:1}
 .art-date{
@@ -526,10 +522,8 @@ html[data-theme="light"] .satvrday{color:var(--burn)}
 }
 .lg-slot{
   display:flex;align-items:center;justify-content:center;
-  height:56px;transition:transform .3s var(--ease),filter .3s;
-  filter:grayscale(1) brightness(1.6) opacity(.72); /* quiet until hovered, so mismatched logo colors stay cohesive */
+  height:56px;
 }
-.lg-slot:hover{transform:translateY(-4px) scale(1.04);filter:none}
 .lg-slot img{height:100%;width:auto;max-width:150px;object-fit:contain;display:block}
 .lg-slot.major{height:70px}
 /* fallback pill only shows if an <img> fails to load or before you've added the file */
