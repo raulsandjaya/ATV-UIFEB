@@ -3,14 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ============ EDIT THESE 3 LINES PER ARTICLE ============ -->
-<title>ARTICLE TITLE HERE | SATVRDAY — The 25th ATV</title>
-<meta name="description" content="ONE-LINE SUMMARY HERE.">
-<meta property="og:title" content="ARTICLE TITLE HERE">
-<!-- ========================================================== -->
-
-<meta property="og:type" content="article">
+<title>Articles — SATVRDAY | The 25th ATV, FEB UI</title>
+<meta name="description" content="Audit takes on real-world cases, written by FEB UI students — every SATVRDAY. The 25th Auditor's Transformation Venture.">
+<meta property="og:title" content="Articles — SATVRDAY | The 25th ATV">
+<meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F5A800'/%3E%3Ccircle cx='27' cy='26' r='11' fill='none' stroke='%231A0F08' stroke-width='5'/%3E%3Cpath d='M34 35 L47 50 L41 54 L31 38 Z' fill='%231A0F08'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +14,6 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="/styles/site.css">
-<link rel="stylesheet" href="/styles/article.css">
 </head>
 <body>
 
@@ -53,7 +48,7 @@
         <li><a href="/#vision">Vision</a></li>
         <li><a href="/#events">Events</a></li>
         <li><a href="/#timeline">Timeline</a></li>
-        <li><a href="/#articles">Articles</a></li>
+        <li><a href="/articles.html" class="active">Articles</a></li>
         <li><a href="/#sponsors">Sponsors</a></li>
         <li><a href="/#contact">Contact</a></li>
       </ul>
@@ -75,98 +70,127 @@
   <a href="/#vision" style="--i:0"><i>01</i>Vision</a>
   <a href="/#events" style="--i:1"><i>02</i>Events</a>
   <a href="/#timeline" style="--i:2"><i>03</i>Timeline</a>
-  <a href="/#articles" style="--i:3"><i>04</i>Articles</a>
+  <a href="/articles.html" style="--i:3"><i>04</i>Articles</a>
   <a href="/#sponsors" style="--i:4"><i>05</i>Sponsors</a>
   <a href="/#contact" style="--i:5"><i>06</i>Contact</a>
   <p class="tagline">#ActualizingTheVision — The 25th ATV</p>
 </div>
 
-<a class="a-back" href="/#articles">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
-  Back to Articles
-</a>
-
 <main>
 
-<section class="a-cover">
-  <div class="wrap a-cover-inner">
-    <div class="a-logos" data-reveal>
-      <div class="uni">
-        <img src="/logos/ui.png" alt="Universitas Indonesia" height="34"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2734%27 height=%2734%27 viewBox=%270 0 34 34%27%3E%3Ccircle cx=%2717%27 cy=%2717%27 r=%2716%27 fill=%27%23FFC72C%27 stroke=%27%231D3E1F%27 stroke-width=%271.2%27/%3E%3Cpath d=%27M17 8l3 6-3 2-3-2z%27 fill=%27%231D3E1F%27/%3E%3C/svg%3E'">
-        <span><b>Universitas Indonesia</b><small>SPA FEB-UI</small></span>
-      </div>
-      <div class="a-atv-mark">
-        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" fill="url(#gmark3)"/>
-          <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
-          <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
-          <defs><linearGradient id="gmark3" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
-        </svg>
-        <span><b>ATV</b><small>Auditor's Transformation Venture</small></span>
-      </div>
-    </div>
-
-    <div class="a-satvrday" data-reveal>
-      <span class="kicker">The 25th</span>
-      <div class="lockup">SATVRDAY</div>
-      <span class="sub">Auditor's Transformation Venture</span>
-    </div>
-
-    <!-- ============ EDIT: cover title (short, punchy — matches the graphic version) ============ -->
-    <h1 class="a-hero-title center" data-reveal>
-      Cover Title <span class="accent">Goes Here:</span>
-    </h1>
-    <p class="a-hero-sub center" data-reveal>Subtitle line goes here</p>
-    <!-- ==================================================================================== -->
-  </div>
-</section>
-
-<section class="a-meta-bar">
-  <div class="wrap a-meta-wrap" data-reveal>
-    <!-- ============ EDIT: full title + authors + date ============ -->
-    <h2 class="a-title2">Full Article Title Goes Here</h2>
-    <div class="a-meta-row">
-      <span class="a-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
-        Author One, Author Two
-      </span>
-      <span class="a-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
-        DD Month YYYY
-      </span>
-    </div>
-    <p class="a-faculty-line">Faculty of Economics and Business, Universitas Indonesia</p>
-    <!-- ============================================================ -->
-  </div>
-</section>
-
-<!-- ============ EDIT: article body — use <h2> for sections, <p> for paragraphs, <strong> for bold ============ -->
-<article class="wrap a-prose" data-reveal="group">
-
-<h2>Section Heading</h2>
-<p>Paragraph text goes here.</p>
-
-<div class="a-refs">
-  <h2>References</h2>
-  <ol>
-    <li>Author. (Year). Title. Source. Accessed from: <a href="URL" target="_blank" rel="noopener">display text</a></li>
-  </ol>
-</div>
-
-</article>
-<!-- ============================================================================================================ -->
-
-<section class="a-choices">
+<section class="section articles" id="articles-top" style="padding-top:9.5rem">
   <div class="wrap">
-    <p>Where to next?</p>
-    <div class="btns">
-      <a class="btn btn-solid" href="https://atv-uifeb.vercel.app/#articles" data-magnetic>More Articles
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-ghost" href="https://atv-uifeb.vercel.app/" data-magnetic>ATV Home
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
-      </a>
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">SATVRDAY Series</span>
+      <h2 class="h2">All <em>Articles</em></h2>
+      <p class="lead">Audit takes on real-world cases — written by FEB UI students, served every SATVRDAY.</p>
+    </div>
+
+    <div class="art-grid">
+      <!-- Each card's photo: /logos/<name>.jpg — if missing, it gracefully falls back to the brand gradient. -->
+
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <img class="art-cover-photo" src="/logos/pangrango.jpg" alt=""
+               onerror="this.remove()">
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            28 February 2026
+          </span>
+          <h3>The Silent Crisis of Mount Gede Pangrango: A Failure of Environmental Compliance</h3>
+          <p class="art-authors"><b>Authors:</b> Rafael Lindung Saptaga, Nikita Virya Atmadja</p>
+          <div class="art-foot">
+            <a class="art-read" href="/the-silent-crisis-of-mount-gede-pangrango-a-failure-of-environmental-compliance" aria-label="Read: The Silent Crisis of Mount Gede Pangrango">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <img class="art-cover-photo" src="/logos/crypto.jpg" alt=""
+               onerror="this.remove()">
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            19 January 2026
+          </span>
+          <h3>Crypto on the Balance Sheet: Auditing Digital Assets After U.S. Regulatory Shifts</h3>
+          <p class="art-authors"><b>Authors:</b> Muhammad Farriz Al'Amin, Hermajesty Najwa Prasojo</p>
+          <div class="art-foot">
+            <a class="art-read" href="/crypto-on-the-balance-sheet-auditing-digital-assets-after-us-regulatory-shifts" aria-label="Read: Crypto on the Balance Sheet">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <img class="art-cover-photo" src="/logos/louvre.jpg" alt=""
+               onerror="this.remove()">
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            27 December 2025
+          </span>
+          <h3>Auditing The Louvre Heist: When Internal Control Falls Short</h3>
+          <p class="art-authors"><b>Authors:</b> Ahmad Yahya Zan, Graceda Tiandi Liangga</p>
+          <div class="art-foot">
+            <a class="art-read" href="/auditing-the-louvre-heist-when-internal-control-falls-short" aria-label="Read: Auditing The Louvre Heist">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <img class="art-cover-photo" src="/logos/spac.jpg" alt=""
+               onerror="this.remove()">
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            23 November 2025
+          </span>
+          <h3>Examining Audit Complexity in the Evolving SPAC Merger Process</h3>
+          <p class="art-authors"><b>Authors:</b> Muhammad Saify Ilmi, Aji Maulana Mukti</p>
+          <div class="art-foot">
+            <a class="art-read" href="/examining-audit-complexity-in-the-evolving-spac-merger-process" aria-label="Read: Examining Audit Complexity in the SPAC Merger Process">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ To add a new article card, copy the block above, update text + slug,
+           and add its cover photo as /logos/<name>.jpg (or leave it — it falls back gracefully) ============ -->
     </div>
   </div>
 </section>
