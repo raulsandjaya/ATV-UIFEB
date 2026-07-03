@@ -527,7 +527,7 @@ html[data-theme="light"] .satvrday{color:var(--burn)}
 .sp-card p{color:var(--ink-2);font-size:.95rem}
 .sp-card p+p{margin-top:.9rem}
 
-/* ---------- partner walls ---------- */
+/* ---------- partner logo walls (transparent PNGs, no white boxes) ---------- */
 .partners{background:var(--bg1)}
 .p-group{margin-top:3.4rem}
 .p-group:first-of-type{margin-top:0}
@@ -537,18 +537,23 @@ html[data-theme="light"] .satvrday{color:var(--burn)}
 }
 .p-title em{font-style:italic;font-family:var(--font-i);color:var(--accent-ink)}
 .lg-wall{
-  background:#FBF8F1;border-radius:var(--radius);padding:clamp(1.4rem,3vw,2.2rem);
-  display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;align-items:center;
+  background:var(--card-grad);border-radius:var(--radius);padding:clamp(1.6rem,3.4vw,2.6rem);
+  display:flex;flex-wrap:wrap;gap:clamp(1.4rem,3vw,2.6rem);justify-content:center;align-items:center;
   border:1px solid var(--line);box-shadow:var(--shadow);
 }
-.lg-pill{
-  font-family:var(--font-d);font-weight:700;font-size:.9rem;letter-spacing:.02em;
-  color:#3A2410;background:#fff;border:1px solid #E9DFC8;border-radius:12px;
-  padding:.68rem 1.1rem;transition:transform .25s var(--ease),box-shadow .25s;cursor:default;
-  text-align:center;
+.lg-slot{
+  display:flex;align-items:center;justify-content:center;
+  height:56px;transition:transform .3s var(--ease),filter .3s;
+  filter:grayscale(1) brightness(1.6) opacity(.72); /* quiet until hovered, so mismatched logo colors stay cohesive */
 }
-.lg-pill:hover{transform:translateY(-3px);box-shadow:0 10px 22px -12px rgba(122,74,10,.5)}
-.lg-pill.major{font-size:1.08rem;padding:.85rem 1.4rem}
+.lg-slot:hover{transform:translateY(-4px) scale(1.04);filter:none}
+.lg-slot img{height:100%;width:auto;max-width:150px;object-fit:contain;display:block}
+.lg-slot.major{height:70px}
+/* fallback pill only shows if an <img> fails to load or before you've added the file */
+.lg-slot .fallback{
+  font-family:var(--font-d);font-weight:700;font-size:.85rem;color:var(--ink-2);
+  border:1px dashed var(--line-strong);border-radius:10px;padding:.6rem 1rem;white-space:nowrap;
+}
 
 /* ---------- big CTA ---------- */
 .cta{
@@ -1138,63 +1143,187 @@ html[data-theme="light"] .socials svg{color:var(--gold-deep)}
       <h2 class="h2">Partners <em>&amp; Friends</em></h2>
     </div>
 
-    <!-- Tip: swap any pill for a real logo — <img src="/logos/name.png" alt="Name" style="height:44px"> -->
+    <!-- Drop real transparent PNG logos into /logos/ using the exact filenames below.
+         Until a file exists, that logo gracefully falls back to a text pill (see onerror). -->
     <div class="p-group" data-reveal>
       <h3 class="p-title">Our <em>Sponsorship</em></h3>
       <div class="lg-wall">
-        <span class="lg-pill major">Pertamina Gas Negara</span>
-        <span class="lg-pill major">Jamkrindo · a member of IFG</span>
-        <span class="lg-pill">The Institute of Internal Auditors Indonesia</span>
-        <span class="lg-pill">Se'Indonesia</span>
-        <span class="lg-pill">JisuLife</span>
-        <span class="lg-pill">Elnusa</span>
-        <span class="lg-pill">Kopi Kenangan</span>
-        <span class="lg-pill">Cakap</span>
-        <span class="lg-pill">Happy Pet</span>
-        <span class="lg-pill">Cris Bar</span>
-        <span class="lg-pill">The Harvest</span>
-        <span class="lg-pill">Kemuning Konveksi</span>
-        <span class="lg-pill">Jamkrindo Syariah</span>
-        <span class="lg-pill">OT</span>
-        <span class="lg-pill">IDX · Indonesia Stock Exchange</span>
-        <span class="lg-pill">Juva by ZAP</span>
-        <span class="lg-pill">Perhutani</span>
-        <span class="lg-pill">Ajaib Alpha</span>
-        <span class="lg-pill">ITO EN</span>
-        <span class="lg-pill">Azarine</span>
-        <span class="lg-pill">JIEP</span>
-        <span class="lg-pill">MT Connection</span>
-        <span class="lg-pill">ILUNI FEB UI</span>
+        <div class="lg-slot major">
+          <img src="/logos/pertamina-gas-negara.png" alt="Pertamina Gas Negara" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Pertamina Gas Negara'}))">
+        </div>
+        <div class="lg-slot major">
+          <img src="/logos/jamkrindo.png" alt="Jamkrindo — a member of IFG" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Jamkrindo — a member of IFG'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/iia-indonesia.png" alt="The Institute of Internal Auditors Indonesia" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'The Institute of Internal Auditors Indonesia'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/seindonesia.png" alt="Se'Indonesia" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Se'Indonesia'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/jisulife.png" alt="JisuLife" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'JisuLife'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/elnusa.png" alt="Elnusa" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Elnusa'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/kopi-kenangan.png" alt="Kopi Kenangan" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Kopi Kenangan'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/cakap.png" alt="Cakap" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Cakap'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/happy-pet.png" alt="Happy Pet" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Happy Pet'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/cris-bar.png" alt="Cris Bar" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Cris Bar'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/the-harvest.png" alt="The Harvest" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'The Harvest'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/kemuning-konveksi.png" alt="Kemuning Konveksi" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Kemuning Konveksi'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/jamkrindo-syariah.png" alt="Jamkrindo Syariah" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Jamkrindo Syariah'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/ot.png" alt="OT" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'OT'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/idx.png" alt="IDX — Indonesia Stock Exchange" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'IDX — Indonesia Stock Exchange'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/juva-by-zap.png" alt="Juva by ZAP" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Juva by ZAP'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/perhutani.png" alt="Perhutani" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Perhutani'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/ajaib-alpha.png" alt="Ajaib Alpha" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Ajaib Alpha'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/ito-en.png" alt="ITO EN" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'ITO EN'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/azarine.png" alt="Azarine" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Azarine'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/jiep.png" alt="JIEP" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'JIEP'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/mt-connection.png" alt="MT Connection" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'MT Connection'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/iluni-feb-ui.png" alt="ILUNI FEB UI" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'ILUNI FEB UI'}))">
+        </div>
       </div>
     </div>
 
     <div class="p-group" data-reveal>
       <h3 class="p-title">Our <em>Media Partnership</em></h3>
       <div class="lg-wall">
-        <span class="lg-pill">Metro TV</span>
-        <span class="lg-pill">MetroTVNews.com</span>
-        <span class="lg-pill">Suara.com</span>
-        <span class="lg-pill">Kompasiana</span>
-        <span class="lg-pill">Yoursay.id</span>
-        <span class="lg-pill">Bisnis Indonesia</span>
-        <span class="lg-pill">DataIndonesia.id</span>
-        <span class="lg-pill">Republika</span>
-        <span class="lg-pill">DAAI TV</span>
-        <span class="lg-pill">Akurat.co</span>
-        <span class="lg-pill">Tempo</span>
-        <span class="lg-pill">Ruang Seminar</span>
+        <div class="lg-slot">
+          <img src="/logos/metro-tv.png" alt="Metro TV" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Metro TV'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/metrotvnews.png" alt="MetroTVNews.com" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'MetroTVNews.com'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/suara.png" alt="Suara.com" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Suara.com'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/kompasiana.png" alt="Kompasiana" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Kompasiana'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/yoursay.png" alt="Yoursay.id" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Yoursay.id'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/bisnis-indonesia.png" alt="Bisnis Indonesia" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Bisnis Indonesia'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/dataindonesia.png" alt="DataIndonesia.id" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'DataIndonesia.id'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/republika.png" alt="Republika" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Republika'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/daai-tv.png" alt="DAAI TV" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'DAAI TV'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/akurat.png" alt="Akurat.co" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Akurat.co'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/tempo.png" alt="Tempo" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Tempo'}))">
+        </div>
+        <div class="lg-slot">
+          <img src="/logos/ruang-seminar.png" alt="Ruang Seminar" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Ruang Seminar'}))">
+        </div>
       </div>
     </div>
 
     <div class="p-group" data-reveal>
       <h3 class="p-title">Our <em>Working Partner</em></h3>
       <div class="lg-wall">
-        <span class="lg-pill major">The Institute of Internal Auditors Indonesia</span>
-        <span class="lg-pill major">RSM</span>
-        <span class="lg-pill major">KPMG</span>
-        <span class="lg-pill major">ACCA</span>
-        <span class="lg-pill major">TYMBA</span>
-        <span class="lg-pill major">PwC</span>
+        <div class="lg-slot major">
+          <img src="/logos/iia-indonesia.png" alt="The Institute of Internal Auditors Indonesia" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'The Institute of Internal Auditors Indonesia'}))">
+        </div>
+        <div class="lg-slot major">
+          <img src="/logos/rsm.png" alt="RSM" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'RSM'}))">
+        </div>
+        <div class="lg-slot major">
+          <img src="/logos/kpmg.png" alt="KPMG" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'KPMG'}))">
+        </div>
+        <div class="lg-slot major">
+          <img src="/logos/acca.png" alt="ACCA" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'ACCA'}))">
+        </div>
+        <div class="lg-slot major">
+          <img src="/logos/tymba.png" alt="TYMBA" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'TYMBA'}))">
+        </div>
+        <div class="lg-slot major">
+          <img src="/logos/pwc.png" alt="PwC" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'PwC'}))">
+        </div>
       </div>
     </div>
   </div>
