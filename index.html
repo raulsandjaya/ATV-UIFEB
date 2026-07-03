@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 25th ATV — Auditor's Transformation Venture | FEB UI</title>
+<meta name="description" content="The Biggest and The Oldest Audit Event Held by Accounting Students of FEB UI. The Transformative Auditor: Strengthening Assurance Amidst Evolving Business Challenges. #ActualizingTheVision">
+<meta property="og:title" content="The 25th Auditor's Transformation Venture">
+<meta property="og:description" content="The Transformative Auditor: Strengthening Assurance Amidst Evolving Business Challenges.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F5A800'/%3E%3Ccircle cx='27' cy='26' r='11' fill='none' stroke='%231A0F08' stroke-width='5'/%3E%3Cpath d='M34 35 L47 50 L41 54 L31 38 Z' fill='%231A0F08'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+/* ============================================================
+   THE 25TH ATV — DESIGN SYSTEM
+   Palette: Gold × Espresso (brand-consistent, elevated)
+   Type:    Space Grotesk (display) / Plus Jakarta Sans (body)
+            Fraunces Italic (editorial accent words)
+   ============================================================ */
+:root{
+  --gold:#F5A800;
+  --gold-hi:#FFD666;
+  --gold-deep:#C97B12;
+  --burn:#8A4B0F;
+
+  --bg0:#0E0703;
+  --bg1:#160B05;
+  --bg2:#1F1008;
+  --ink:#F9EDD3;
+  --ink-2:#D9C09A;
+  --ink-3:#A98F66;
+  --accent-ink:#FFD666;
+
+  --line:rgba(255,214,102,.14);
+  --line-strong:rgba(255,214,102,.32);
+  --card-grad:linear-gradient(165deg,#261307 0%,#170C05 65%,#120903 100%);
+  --glass:rgba(20,10,4,.72);
+  --glow:rgba(245,168,0,.28);
+  --shadow:0 24px 60px -24px rgba(0,0,0,.75);
+
+  --btn-ink:#1D0F04;
+  --radius:26px;
+  --font-d:"Space Grotesk",system-ui,sans-serif;
+  --font-b:"Plus Jakarta Sans",system-ui,sans-serif;
+  --font-i:"Fraunces",Georgia,serif;
+  --ease:cubic-bezier(.22,.9,.28,1);
+}
+html[data-theme="light"]{
+  --bg0:#FFF9EC;
+  --bg1:#FFF2D8;
+  --bg2:#F8E6BE;
+  --ink:#2B1607;
+  --ink-2:#5C3D1C;
+  --ink-3:#8A6A3F;
+  --accent-ink:#8F5400;
+
+  --line:rgba(93,58,13,.18);
+  --line-strong:rgba(93,58,13,.4);
+  --card-grad:linear-gradient(165deg,#FFFDF6 0%,#FFF4DC 70%,#FBEBC9 100%);
+  --glass:rgba(255,248,232,.82);
+  --glow:rgba(217,138,0,.28);
+  --shadow:0 24px 60px -28px rgba(122,74,10,.35);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-b);
+  background:var(--bg0);
+  color:var(--ink);
+  line-height:1.7;
+  overflow-x:hidden;
+  transition:background .5s var(--ease),color .5s var(--ease);
+}
+::selection{background:var(--gold);color:#1D0F04}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg0)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold-deep),var(--burn));border-radius:99px;border:2px solid var(--bg0)}
+
+/* grain overlay */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:3;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- utilities ---------- */
+.wrap{width:min(1180px,92%);margin-inline:auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--font-d);font-size:.78rem;font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--accent-ink);
+}
+.eyebrow::before{
+  content:"";width:9px;height:9px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 4px var(--glow);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--glow)}50%{box-shadow:0 0 0 7px transparent}}
+.h2{
+  font-family:var(--font-d);font-weight:700;line-height:1.04;
+  font-size:clamp(2.3rem,5.4vw,4.2rem);letter-spacing:-.02em;margin:.9rem 0 1.1rem;
+}
+.h2 em{
+  font-family:var(--font-i);font-style:italic;font-weight:600;letter-spacing:0;
+  background:linear-gradient(100deg,var(--gold-hi),var(--gold) 55%,var(--gold-deep));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-right:.06em;
+}
+html[data-theme="light"] .h2 em{
+  background:linear-gradient(100deg,#C97B12,#8F5400);
+  -webkit-background-clip:text;background-clip:text;
+}
+.lead{color:var(--ink-2);font-size:clamp(1rem,1.4vw,1.14rem);max-width:62ch}
+.section{padding:clamp(5.5rem,10vw,9rem) 0;position:relative}
+.section-head{max-width:760px;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.center{text-align:center;margin-inline:auto}
+.center .eyebrow{justify-content:center}
+.center .lead{margin-inline:auto}
+
+/* buttons */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:.7rem;
+  font-family:var(--font-d);font-weight:600;font-size:.95rem;letter-spacing:.04em;
+  padding:1rem 1.9rem;border-radius:999px;cursor:pointer;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s,border-color .25s;
+  will-change:transform;white-space:nowrap;
+}
+.btn svg{width:17px;height:17px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-solid{
+  background:linear-gradient(120deg,var(--gold-hi),var(--gold) 55%,var(--gold-deep));
+  color:var(--btn-ink);box-shadow:0 10px 30px -10px var(--glow);
+}
+.btn-solid:hover{transform:translateY(-3px);box-shadow:0 18px 44px -12px var(--glow)}
+.btn-ghost{
+  color:var(--ink);border:1.5px solid var(--line-strong);
+  background:linear-gradient(120deg,transparent 50%,rgba(245,168,0,.16) 50%);
+  background-size:230% 100%;background-position:0 0;
+}
+.btn-ghost:hover{background-position:100% 0;border-color:var(--gold);transform:translateY(-3px)}
+
+/* ---------- scroll progress ---------- */
+#progress{
+  position:fixed;top:0;left:0;height:3px;width:100%;z-index:120;
+  transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--gold-hi),var(--gold),var(--gold-deep));
+}
+
+/* ---------- custom cursor ---------- */
+.cursor-dot,.cursor-halo{position:fixed;top:0;left:0;pointer-events:none;z-index:200;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor-dot{width:7px;height:7px;background:var(--gold)}
+.cursor-halo{
+  width:38px;height:38px;border:1.5px solid var(--gold);
+  opacity:.5;transition:width .25s,height .25s,opacity .25s,background .25s;
+}
+.cursor-halo.is-hover{width:62px;height:62px;opacity:.9;background:rgba(245,168,0,.08)}
+@media (hover:none),(pointer:coarse){.cursor-dot,.cursor-halo{display:none}}
+
+/* ---------- preloader ---------- */
+#loader{
+  position:fixed;top:0;left:0;right:0;bottom:0;inset:0;z-index:150;display:flex;flex-direction:column;gap:1.4rem;
+  align-items:center;justify-content:center;background:var(--bg0);
+  transition:opacity .6s var(--ease),visibility .6s;
+}
+#loader.done{opacity:0;visibility:hidden}
+.loader-mark{width:74px;height:74px;animation:spin 2.6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-word{
+  font-family:var(--font-d);font-weight:700;letter-spacing:.45em;font-size:.8rem;
+  text-transform:uppercase;color:var(--ink-3);display:flex;
+}
+.loader-word span{animation:blink 1.2s infinite;animation-delay:calc(var(--i)*.08s)}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1;color:var(--gold-hi)}}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.7rem;font-family:var(--font-d)}
+.brand .mark{width:44px;height:44px;flex:none;transition:transform .5s var(--ease)}
+.brand:hover .mark{transform:rotate(-14deg)}
+.brand b{font-size:1.25rem;font-weight:700;letter-spacing:.02em;line-height:1;display:block}
+.brand small{display:block;font-size:.56rem;letter-spacing:.28em;color:var(--ink-3);text-transform:uppercase;margin-top:.25rem}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{
+  position:relative;font-family:var(--font-d);font-weight:500;font-size:.92rem;
+  color:var(--ink-2);letter-spacing:.03em;padding:.3rem 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold-hi),var(--gold-deep));
+  transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);
+}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-cta{display:flex;align-items:center;gap:.8rem}
+.nav .btn{padding:.72rem 1.4rem;font-size:.85rem}
+
+/* theme toggle */
+.toggle{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex:none;
+  border:1.5px solid var(--line-strong);color:var(--accent-ink);
+  transition:transform .5s var(--ease),border-color .3s,background .3s;cursor:pointer;
+}
+.toggle:hover{border-color:var(--gold);background:rgba(245,168,0,.1);transform:rotate(40deg)}
+.toggle svg{width:19px;height:19px}
+.toggle .sun{display:none}
+html[data-theme="light"] .toggle .sun{display:block}
+html[data-theme="light"] .toggle .moon{display:none}
+
+/* burger + mobile menu */
+.burger{display:none;width:44px;height:44px;flex-direction:column;gap:6px;align-items:center;justify-content:center;z-index:130;flex:none}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.35s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.m-menu{
+  position:fixed;top:0;left:0;right:0;bottom:0;inset:0;z-index:110;background:var(--bg0);
+  display:flex;flex-direction:column;justify-content:center;padding:0 8%;
+  clip-path:circle(0% at calc(100% - 44px) 44px);transition:clip-path .7s var(--ease),visibility .7s;
+  visibility:hidden;
+}
+.m-menu.open{clip-path:circle(150% at calc(100% - 44px) 44px);visibility:visible}
+.m-menu a{
+  font-family:var(--font-d);font-weight:700;font-size:clamp(2.1rem,8.5vw,3.4rem);
+  padding:.45rem 0;color:var(--ink-2);display:flex;align-items:baseline;gap:1rem;
+  opacity:0;transform:translateY(26px);transition:opacity .45s var(--ease),transform .45s var(--ease),color .25s;
+}
+.m-menu.open a{opacity:1;transform:none;transition-delay:calc(.15s + var(--i)*.07s)}
+.m-menu a:hover{color:var(--gold-hi)}
+.m-menu a i{font-style:normal;font-size:.85rem;letter-spacing:.25em;color:var(--gold-deep);font-weight:600}
+.m-menu .tagline{margin-top:2.4rem;color:var(--ink-3);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+@supports not (clip-path:circle(1% at 0 0)){
+  .m-menu{clip-path:none;opacity:0;pointer-events:none;transition:opacity .45s var(--ease),visibility .45s}
+  .m-menu.open{opacity:1;pointer-events:auto}
+}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;padding:7.5rem 0 8rem;
+  background:
+    radial-gradient(1100px 520px at 78% -10%,rgba(245,168,0,.16),transparent 60%),
+    radial-gradient(800px 500px at -10% 110%,rgba(201,123,18,.14),transparent 60%),
+    var(--bg0);
+}
+#stars{position:absolute;inset:0;z-index:0}
+.hero-glow{
+  position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);
+  background:radial-gradient(circle,var(--glow),transparent 60%);
+  top:-30vmax;right:-18vmax;z-index:0;pointer-events:none;
+}
+.chev{
+  position:absolute;width:150px;height:150px;border:2px solid var(--line-strong);
+  transform:rotate(45deg);border-radius:14px;opacity:.5;pointer-events:none;z-index:0;
+}
+.chev.c1{left:-70px;top:32%}.chev.c2{left:-24px;top:44%;width:100px;height:100px;opacity:.3}
+.chev.c3{right:-70px;top:58%}.chev.c4{right:-20px;top:70%;width:96px;height:96px;opacity:.3}
+.hero-inner{position:relative;z-index:2;text-align:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.6rem;
+  padding:.55rem 1.2rem;border-radius:999px;border:1px solid var(--line-strong);
+  background:var(--glass);backdrop-filter:blur(8px);
+  font-family:var(--font-d);font-size:.75rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--accent-ink);
+}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+.hero h1{
+  font-family:var(--font-d);font-weight:700;text-transform:uppercase;
+  font-size:clamp(2.55rem,8.2vw,7rem);line-height:.98;letter-spacing:-.02em;
+}
+.hero h1 .row{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ch{display:inline-block;white-space:pre}
+.hero h1 .shimmer{color:var(--gold)} /* readable solid fallback on every device */
+html[data-theme="light"] .hero h1 .shimmer{color:#8F5400}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero h1 .shimmer{
+    background:linear-gradient(110deg,#FFE9A8 15%,var(--gold-hi) 35%,var(--gold) 55%,#E89B24 80%);
+    background-size:200% 100%;-webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+    animation:shine 5.5s linear infinite;
+  }
+  html[data-theme="light"] .hero h1 .shimmer{
+    background:linear-gradient(110deg,#C97B12 15%,#8F5400 45%,#B36B00 65%,#8A4B0F 90%);
+    background-size:200% 100%;-webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+  }
+}
+@keyframes shine{to{background-position:-200% 0}}
+.hero-theme{
+  margin:1.7rem auto 0;max-width:52rem;color:var(--ink-2);
+  font-size:clamp(1.02rem,1.7vw,1.28rem);
+}
+.hero-theme em{font-family:var(--font-i);font-style:italic;color:var(--accent-ink);font-size:1.08em}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.hero-stats{
+  display:flex;justify-content:center;gap:clamp(1.6rem,5vw,4.2rem);flex-wrap:wrap;
+  margin-top:clamp(2.6rem,5vh,4rem);
+}
+.stat{text-align:center}
+.stat b{
+  font-family:var(--font-d);font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);
+  color:var(--accent-ink);display:flex;align-items:baseline;justify-content:center;gap:.1em;line-height:1;
+}
+.stat b i{font-style:normal;font-size:.6em;color:var(--gold-deep)}
+.stat span{display:block;margin-top:.4rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3)}
+.scroll-cue{
+  position:absolute;bottom:6.6rem;left:50%;transform:translateX(-50%);z-index:2;
+  width:26px;height:44px;border:2px solid var(--line-strong);border-radius:99px;
+}
+.scroll-cue::before{
+  content:"";position:absolute;left:50%;top:8px;width:4px;height:9px;border-radius:4px;
+  background:var(--gold);transform:translateX(-50%);animation:drop 1.8s var(--ease) infinite;
+}
+@keyframes drop{0%{opacity:0;top:7px}35%{opacity:1}100%{opacity:0;top:24px}}
+
+/* ---------- marquee ---------- */
+.marquee{
+  position:relative;z-index:2;border-block:1px solid var(--line);
+  background:var(--bg1);overflow:hidden;padding:1.05rem 0;
+}
+.marquee-track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee.rev .marquee-track{animation-direction:reverse}
+.marquee span{
+  display:flex;align-items:center;gap:2.6rem;padding-right:2.6rem;flex:none;
+  font-family:var(--font-d);font-weight:600;letter-spacing:.26em;font-size:.85rem;
+  text-transform:uppercase;color:var(--ink-2);
+}
+.marquee i{font-style:normal;color:var(--gold);font-size:1rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+.hero .marquee{position:absolute;bottom:0;left:0;right:0}
+
+/* ---------- grand theme / vision ---------- */
+.vision{background:linear-gradient(180deg,var(--bg0),var(--bg1));overflow:hidden}
+.vision .lens-bg{position:absolute;right:-160px;top:6%;width:520px;opacity:.07;pointer-events:none}
+.vision-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.vision-quote{
+  font-family:var(--font-i);font-style:italic;font-weight:600;
+  font-size:clamp(1.5rem,2.9vw,2.25rem);line-height:1.35;color:var(--ink);
+  border-left:3px solid var(--gold);padding-left:1.6rem;
+}
+.vision-quote b{color:var(--accent-ink);font-weight:600}
+.vision-copy p+p{margin-top:1.2rem}
+.vision-copy p{color:var(--ink-2)}
+.vision-tags{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.tag{
+  font-family:var(--font-d);font-size:.74rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);
+  border:1px solid var(--line-strong);border-radius:999px;padding:.5rem 1.05rem;
+  transition:.3s var(--ease);cursor:default;
+}
+.tag:hover{background:rgba(245,168,0,.12);border-color:var(--gold);transform:translateY(-3px)}
+
+/* ---------- events ---------- */
+.events{background:var(--bg1)}
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;perspective:1200px}
+.ev-card{
+  position:relative;border-radius:var(--radius);padding:2.4rem;overflow:hidden;
+  background:var(--card-grad);border:1px solid var(--line);
+  transform-style:preserve-3d;transition:border-color .35s,box-shadow .35s;
+}
+.ev-card::before{
+  content:"";position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .35s;pointer-events:none;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(255,214,102,.14),transparent 45%);
+}
+.ev-card:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}
+.ev-card:hover::before{opacity:1}
+.ev-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;transform:translateZ(30px)}
+.ev-num{font-family:var(--font-d);font-weight:700;font-size:.8rem;letter-spacing:.3em;color:var(--gold-deep)}
+.ev-icon{
+  width:76px;height:76px;border-radius:20px;display:grid;place-items:center;flex:none;
+  border:1px solid var(--line-strong);color:var(--gold-hi);
+  background:radial-gradient(circle at 30% 25%,rgba(245,168,0,.22),transparent 70%);
+  transition:transform .45s var(--ease);
+}
+html[data-theme="light"] .ev-icon{color:var(--gold-deep)}
+.ev-card:hover .ev-icon{transform:rotate(-8deg) scale(1.08)}
+.ev-icon svg{width:38px;height:38px}
+.ev-card h3{
+  font-family:var(--font-d);font-weight:700;font-size:clamp(1.35rem,2.2vw,1.7rem);
+  margin:1.5rem 0 .7rem;transform:translateZ(24px);
+}
+.ev-card p{color:var(--ink-2);font-size:.97rem;transform:translateZ(16px)}
+
+/* ---------- timeline ---------- */
+.timeline{background:linear-gradient(180deg,var(--bg1),var(--bg0));overflow:hidden}
+.tl{position:relative;max-width:960px;margin-inline:auto;padding:1rem 0}
+.tl-spine{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:var(--line)}
+.tl-progress{
+  position:absolute;left:0;top:0;width:100%;height:100%;
+  background:linear-gradient(180deg,var(--gold-hi),var(--gold),var(--gold-deep));
+  transform:scaleY(0);transform-origin:top;box-shadow:0 0 18px var(--glow);
+}
+.tl-item{position:relative;width:50%;padding:1.3rem 3.2rem 1.3rem 0}
+.tl-item:nth-child(even){margin-left:50%;padding:1.3rem 0 1.3rem 3.2rem}
+.tl-node{
+  position:absolute;top:2rem;right:-23px;width:46px;height:46px;z-index:2;
+  border-radius:50%;display:grid;place-items:center;
+  background:var(--bg2);border:2px solid var(--line-strong);color:var(--gold-deep);
+  transition:.45s var(--ease);
+}
+.tl-item:nth-child(even) .tl-node{right:auto;left:-23px}
+.tl-node svg{width:20px;height:20px;grid-area:1/1}
+.tl-node .check{opacity:0;transform:scale(.4);transition:.35s var(--ease)}
+.tl-node .lens{transition:.35s var(--ease)}
+.tl-item.done .tl-node{
+  background:linear-gradient(140deg,var(--gold-hi),var(--gold-deep));
+  border-color:var(--gold);color:#1D0F04;box-shadow:0 0 0 7px var(--glow);
+}
+.tl-item.done .tl-node .lens{opacity:0;transform:scale(.4)}
+.tl-item.done .tl-node .check{opacity:1;transform:scale(1)}
+.tl-card{
+  background:var(--card-grad);border:1px solid var(--line);border-radius:20px;
+  padding:1.35rem 1.6rem;transition:border-color .35s,transform .35s var(--ease),box-shadow .35s;
+}
+.tl-item:hover .tl-card{border-color:var(--line-strong);transform:translateY(-4px);box-shadow:var(--shadow)}
+.tl-date{
+  font-family:var(--font-d);font-size:.72rem;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--accent-ink);
+  display:inline-block;border:1px solid var(--line-strong);border-radius:999px;
+  padding:.32rem .85rem;margin-bottom:.7rem;
+}
+.tl-card h4{font-family:var(--font-d);font-weight:700;font-size:1.12rem;line-height:1.3}
+.tl-item.done .tl-date{background:rgba(245,168,0,.14);border-color:var(--gold)}
+
+/* ---------- articles ---------- */
+.articles{background:var(--bg0)}
+.art-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+.art-card{
+  border-radius:var(--radius);overflow:hidden;background:var(--card-grad);
+  border:1px solid var(--line);display:flex;flex-direction:column;
+  transition:transform .4s var(--ease),border-color .35s,box-shadow .35s;
+}
+.art-card:hover{transform:translateY(-8px);border-color:var(--line-strong);box-shadow:var(--shadow)}
+.art-cover{
+  position:relative;min-height:200px;aspect-ratio:16/8.2;overflow:hidden;display:flex;
+  align-items:flex-end;padding:1.4rem;isolation:isolate;
+}
+.art-cover::before{
+  content:"";position:absolute;inset:0;z-index:-1;transition:transform .6s var(--ease);
+  background:
+    radial-gradient(120% 130% at 15% 0%,rgba(255,214,102,.34),transparent 55%),
+    radial-gradient(110% 120% at 100% 100%,rgba(138,75,15,.55),transparent 60%),
+    linear-gradient(150deg,#3A1D09,#170B04);
+}
+html[data-theme="light"] .art-cover::before{
+  background:
+    radial-gradient(120% 130% at 15% 0%,rgba(255,235,170,.9),transparent 55%),
+    radial-gradient(110% 120% at 100% 100%,rgba(201,123,18,.45),transparent 60%),
+    linear-gradient(150deg,#F9E4B4,#EFCB86);
+}
+.art-card:hover .art-cover::before{transform:scale(1.07)}
+.art-cover .big-idx{
+  position:absolute;right:.6rem;top:-1.6rem;z-index:-1;
+  font-family:var(--font-d);font-weight:700;font-size:8.5rem;line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px var(--line-strong);letter-spacing:-.04em;
+}
+.satvrday{
+  font-family:var(--font-d);font-weight:700;letter-spacing:.34em;font-size:.82rem;
+  color:var(--gold-hi);text-transform:uppercase;display:flex;align-items:center;gap:.55rem;
+}
+html[data-theme="light"] .satvrday{color:var(--burn)}
+.satvrday svg{width:16px;height:16px}
+.art-body{padding:1.6rem 1.7rem 1.8rem;display:flex;flex-direction:column;flex:1}
+.art-date{
+  font-family:var(--font-d);font-size:.72rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--accent-ink);margin-bottom:.6rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.art-date svg{width:14px;height:14px}
+.art-body h3{font-family:var(--font-d);font-weight:700;font-size:1.22rem;line-height:1.35;transition:color .25s}
+.art-card:hover h3{color:var(--accent-ink)}
+.art-authors{margin-top:.7rem;font-size:.86rem;color:var(--ink-3)}
+.art-authors b{color:var(--ink-2);font-weight:600}
+.art-foot{margin-top:auto;padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.art-read{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--font-d);font-weight:600;font-size:.83rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--btn-ink);
+  background:linear-gradient(120deg,var(--gold-hi),var(--gold-deep));
+  padding:.62rem 1.25rem;border-radius:999px;transition:transform .25s var(--ease),box-shadow .25s;
+}
+.art-read:hover{transform:translateY(-3px);box-shadow:0 12px 26px -10px var(--glow)}
+.art-read svg{width:14px;height:14px}
+.art-faculty{font-size:.72rem;color:var(--ink-3);font-style:italic;text-align:right;max-width:46%}
+
+/* ---------- sponsors ---------- */
+.sponsors{background:linear-gradient(180deg,var(--bg0),var(--bg1))}
+.sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.sp-card{
+  background:var(--card-grad);border:1px solid var(--line);border-radius:var(--radius);
+  padding:2.6rem;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),border-color .35s,box-shadow .35s;
+}
+.sp-card:hover{transform:translateY(-8px);border-color:var(--line-strong);box-shadow:var(--shadow)}
+.sp-card::after{
+  content:"";position:absolute;top:0;left:-80%;width:55%;height:100%;
+  transform:skewX(-22deg);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,214,102,.09),transparent);
+  transition:left .8s var(--ease);
+}
+.sp-card:hover::after{left:130%}
+.sp-logo{
+  height:72px;display:inline-flex;align-items:center;padding:0 1.5rem;border-radius:16px;
+  background:#fff;margin-bottom:1.4rem;box-shadow:0 6px 18px rgba(0,0,0,.18);
+  font-family:var(--font-d);font-weight:700;font-size:1.7rem;letter-spacing:-.02em;
+}
+.sp-logo.jisu{color:#1D6FEB}
+.sp-logo.juva{color:#111;flex-direction:column;justify-content:center;line-height:1;gap:.18rem}
+.sp-logo.juva small{font-size:.6rem;font-weight:600;letter-spacing:.3em;color:#555}
+.sp-card h3{font-family:var(--font-d);font-weight:700;font-size:1.4rem;color:var(--accent-ink);margin-bottom:.9rem}
+.sp-card p{color:var(--ink-2);font-size:.95rem}
+.sp-card p+p{margin-top:.9rem}
+
+/* ---------- partner walls ---------- */
+.partners{background:var(--bg1)}
+.p-group{margin-top:3.4rem}
+.p-group:first-of-type{margin-top:0}
+.p-title{
+  text-align:center;font-family:var(--font-d);font-weight:700;
+  font-size:clamp(1.4rem,2.6vw,2rem);margin-bottom:1.6rem;
+}
+.p-title em{font-style:italic;font-family:var(--font-i);color:var(--accent-ink)}
+.lg-wall{
+  background:#FBF8F1;border-radius:var(--radius);padding:clamp(1.4rem,3vw,2.2rem);
+  display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;align-items:center;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.lg-pill{
+  font-family:var(--font-d);font-weight:700;font-size:.9rem;letter-spacing:.02em;
+  color:#3A2410;background:#fff;border:1px solid #E9DFC8;border-radius:12px;
+  padding:.68rem 1.1rem;transition:transform .25s var(--ease),box-shadow .25s;cursor:default;
+  text-align:center;
+}
+.lg-pill:hover{transform:translateY(-3px);box-shadow:0 10px 22px -12px rgba(122,74,10,.5)}
+.lg-pill.major{font-size:1.08rem;padding:.85rem 1.4rem}
+
+/* ---------- big CTA ---------- */
+.cta{
+  position:relative;overflow:hidden;text-align:center;
+  background:
+    radial-gradient(900px 420px at 50% 120%,rgba(245,168,0,.22),transparent 65%),
+    var(--bg1);
+  border-block:1px solid var(--line);
+}
+.cta .ghost-word{
+  position:absolute;left:0;right:0;bottom:-1.4rem;font-family:var(--font-d);font-weight:700;
+  font-size:clamp(4rem,14vw,11rem);letter-spacing:.02em;text-transform:uppercase;
+  color:transparent;-webkit-text-stroke:1px var(--line);white-space:nowrap;
+  pointer-events:none;line-height:1;text-align:center;
+}
+.cta h2{
+  font-family:var(--font-d);font-weight:700;line-height:1.05;
+  font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:-.02em;max-width:18ch;margin:1rem auto 1.2rem;
+}
+.cta h2 em{
+  font-family:var(--font-i);font-style:italic;font-weight:600;
+  background:linear-gradient(100deg,var(--gold-hi),var(--gold-deep));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+html[data-theme="light"] .cta h2 em{
+  background:linear-gradient(100deg,#C97B12,#8F5400);
+  -webkit-background-clip:text;background-clip:text;
+}
+.cta .btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem}
+
+/* ---------- footer ---------- */
+footer{background:var(--bg0);border-top:1px solid var(--line);padding:clamp(4rem,7vw,6rem) 0 2.4rem}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:3rem}
+.f-brand p{color:var(--ink-2);margin-top:1.1rem;max-width:34ch;font-size:.95rem}
+.f-brand .hash{color:var(--accent-ink);font-weight:700;font-family:var(--font-d)}
+.f-h{
+  font-family:var(--font-d);font-weight:700;font-size:.82rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--accent-ink);margin-bottom:1.2rem;
+}
+.f-addr{color:var(--ink-2);font-size:.95rem}
+.socials{display:flex;flex-direction:column;gap:.75rem}
+.socials a{
+  display:flex;align-items:center;gap:.8rem;color:var(--ink-2);font-size:.93rem;
+  transition:color .25s,transform .3s var(--ease);width:max-content;
+}
+.socials a:hover{color:var(--accent-ink);transform:translateX(6px)}
+.socials svg{width:19px;height:19px;flex:none;color:var(--gold)}
+html[data-theme="light"] .socials svg{color:var(--gold-deep)}
+.contact-grid{margin-top:3.4rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem}
+.pic-card{
+  border:1px solid var(--line);border-radius:18px;padding:1.3rem 1.4rem;
+  background:var(--card-grad);transition:border-color .3s,transform .3s var(--ease);
+}
+.pic-card:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+.pic-card b{font-family:var(--font-d);font-size:1.05rem}
+.pic-card em{display:block;font-style:normal;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:.25rem 0 .8rem}
+.pic-card a{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--ink-2);padding:.14rem 0;transition:color .25s;width:max-content}
+.pic-card a:hover{color:var(--accent-ink)}
+.pic-card svg{width:14px;height:14px;color:var(--gold-deep);flex:none}
+.f-bottom{
+  margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  color:var(--ink-3);font-size:.85rem;
+}
+
+/* back to top */
+#toTop{
+  position:fixed;right:1.4rem;bottom:1.4rem;z-index:90;width:52px;height:52px;
+  border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:linear-gradient(140deg,var(--gold-hi),var(--gold-deep));color:var(--btn-ink);
+  box-shadow:0 14px 30px -10px var(--glow);
+  opacity:0;transform:translateY(18px);pointer-events:none;
+  transition:opacity .35s,transform .35s var(--ease);
+}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}
+#toTop:hover{transform:translateY(-4px)}
+#toTop svg{width:20px;height:20px}
+
+/* ---------- responsive ---------- */
+@media(max-width:1024px){
+  .events-grid,.art-grid,.sp-grid{grid-template-columns:1fr}
+  .vision-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+  .nav-links,.nav .btn{display:none}
+  .burger{display:flex}
+  .tl-spine{left:22px}
+  .tl-item,.tl-item:nth-child(even){width:100%;margin-left:0;padding:1.1rem 0 1.1rem 4.2rem}
+  .tl-node,.tl-item:nth-child(even) .tl-node{left:0;right:auto}
+  .scroll-cue{display:none}
+  .art-faculty{display:none}
+}
+@media(max-width:560px){
+  .f-grid{grid-template-columns:1fr}
+  .hero-badge{letter-spacing:.14em;font-size:.66rem}
+  .ev-card{padding:1.8rem}
+  .sp-card{padding:1.9rem}
+}
+
+/* reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .scroll-cue,.cursor-dot,.cursor-halo{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- scroll progress -->
+<div id="progress"></div>
+
+<!-- custom cursor -->
+<div class="cursor-halo" id="cursorHalo"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- preloader -->
+<div id="loader" aria-hidden="true">
+  <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
+    <circle cx="27" cy="26" r="13" stroke="#F5A800" stroke-width="4.5"/>
+    <path d="M36 36 L50 52" stroke="#F5A800" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="27" cy="26" r="4" fill="#FFD666"/>
+  </svg>
+  <div class="loader-word" aria-label="Loading">
+    <span style="--i:0">T</span><span style="--i:1">H</span><span style="--i:2">E</span><span style="--i:3">&nbsp;</span><span style="--i:4">2</span><span style="--i:5">5</span><span style="--i:6">T</span><span style="--i:7">H</span><span style="--i:8">&nbsp;</span><span style="--i:9">A</span><span style="--i:10">T</span><span style="--i:11">V</span>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home" aria-label="ATV home">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="url(#gmark)"/>
+        <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
+        <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
+        <defs><linearGradient id="gmark" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
+      </svg>
+      <span><b>ATV</b><small>The 25th · FEB UI</small></span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#vision" data-spy>Vision</a></li>
+        <li><a href="#events" data-spy>Events</a></li>
+        <li><a href="#timeline" data-spy>Timeline</a></li>
+        <li><a href="#articles" data-spy>Articles</a></li>
+        <li><a href="#sponsors" data-spy>Sponsors</a></li>
+        <li><a href="#contact" data-spy>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <button class="toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-solid" href="#contact" data-magnetic>Register
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="m-menu" id="mMenu">
+  <a href="#vision" style="--i:0"><i>01</i>Vision</a>
+  <a href="#events" style="--i:1"><i>02</i>Events</a>
+  <a href="#timeline" style="--i:2"><i>03</i>Timeline</a>
+  <a href="#articles" style="--i:3"><i>04</i>Articles</a>
+  <a href="#sponsors" style="--i:4"><i>05</i>Sponsors</a>
+  <a href="#contact" style="--i:5"><i>06</i>Contact</a>
+  <p class="tagline">#ActualizingTheVision — The 25th ATV</p>
+</div>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="chev c1" data-speed="-6" aria-hidden="true"></div>
+  <div class="chev c2" data-speed="-10" aria-hidden="true"></div>
+  <div class="chev c3" data-speed="-7" aria-hidden="true"></div>
+  <div class="chev c4" data-speed="-12" aria-hidden="true"></div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-badge" data-hero-fade>
+      <span class="dot"></span> The 25th Edition <span aria-hidden="true">✦</span> #ActualizingTheVision
+    </div>
+
+    <h1 id="heroTitle" aria-label="Auditor's Transformation Venture">
+      <span class="row" data-split>AUDITOR'S</span>
+      <span class="row shimmer" data-split>TRANSFORMATION</span>
+      <span class="row" data-split>VENTURE</span>
+    </h1>
+
+    <p class="hero-theme" data-hero-fade>
+      This year's grand theme — <em>"The Transformative Auditor: Strengthening
+      Assurance Amidst Evolving Business Challenges."</em>
+    </p>
+
+    <div class="hero-cta" data-hero-fade>
+      <a class="btn btn-solid" href="#events" data-magnetic>Explore the Events
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#articles" data-magnetic>Read SATVRDAY
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-stats" data-hero-fade>
+      <div class="stat"><b><span data-count="25">0</span><i>th</i></b><span>Edition Strong</span></div>
+      <div class="stat"><b><span data-count="9">0</span></b><span>Series of Events</span></div>
+      <div class="stat"><b><span data-count="4">0</span></b><span>Main Programs</span></div>
+      <div class="stat"><b><span data-count="2026">1990</span></b><span>Season</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"></div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span><i>✦</i> Audit Competition <i>✦</i> Audit Case Challenge <i>✦</i> International Audit Seminar <i>✦</i> Workshop <i>✦</i> Training <i>✦</i> Company Visit <i>✦</i> Awarding Night</span>
+      <span><i>✦</i> Audit Competition <i>✦</i> Audit Case Challenge <i>✦</i> International Audit Seminar <i>✦</i> Workshop <i>✦</i> Training <i>✦</i> Company Visit <i>✦</i> Awarding Night</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRAND THEME ================= -->
+<section class="section vision" id="vision">
+  <svg class="lens-bg" data-speed="4" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+    <circle cx="27" cy="26" r="13" stroke="currentColor" stroke-width="3"/>
+    <path d="M36 36 L54 56" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">This Year's Grand Theme</span>
+      <h2 class="h2">The <em>Transformative</em> Auditor</h2>
+      <p class="lead">Strengthening Assurance Amidst Evolving Business Challenges.</p>
+    </div>
+
+    <div class="vision-grid">
+      <blockquote class="vision-quote" data-reveal>
+        Empowering future auditors to be <b>resilient, forward-thinking professionals</b> —
+        equipped to face the challenges of modern assurance with confidence and integrity.
+      </blockquote>
+
+      <div class="vision-copy" data-reveal="group">
+        <p>In today's evolving business environment, auditors are increasingly required to
+        adapt their approaches to meet new and emerging challenges. The advancement of
+        digital technologies, heightened regulatory demands, and stronger expectations for
+        transparency and accountability have prompted the audit profession to refine its
+        methods while maintaining its core responsibilities in assurance.</p>
+        <p>Through this year's grand theme, the 25th ATV seeks to highlight the strategic
+        contribution of auditors in upholding trust, managing risk, and enhancing assurance
+        quality.</p>
+        <div class="vision-tags">
+          <span class="tag">Trust</span>
+          <span class="tag">Risk Management</span>
+          <span class="tag">Assurance Quality</span>
+          <span class="tag">Digital Era</span>
+          <span class="tag">Integrity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTS ================= -->
+<section class="section events" id="events">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">What We Bring</span>
+      <h2 class="h2">Our <em>Events</em></h2>
+      <p class="lead">Four flagship programs. One transformative season. Pick your arena.</p>
+    </div>
+
+    <div class="events-grid">
+      <article class="ev-card" data-tilt data-reveal>
+        <div class="ev-top">
+          <span class="ev-num">01 — COMPETE</span>
+          <div class="ev-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="6" width="26" height="34" rx="3"/><path d="M14 30v-6M20 30v-10M26 30v-4"/><circle cx="32" cy="32" r="8"/><path d="M38 38l5 5"/><path d="M14 12h14"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Audit Competition</h3>
+        <p>Audit Competition will bring participants from across the nation to compete in
+        various rounds, including written tests, quizzes, and presentations — designed to
+        test their audit knowledge and teamwork.</p>
+      </article>
+
+      <article class="ev-card" data-tilt data-reveal>
+        <div class="ev-top">
+          <span class="ev-num">02 — SOLVE</span>
+          <div class="ev-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="5" width="26" height="36" rx="3"/><path d="M14 13h6M14 21h6M14 29h6"/><circle cx="30" cy="26" r="9"/><path d="M27 26l2.4 2.4L34 23.5"/><path d="M37 33l5 5"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Audit Case Challenge</h3>
+        <p>An exciting opportunity for participants across Indonesia to work on audit cases
+        that require audit skills and creative thinking — navigating Paper Writing, Audit
+        Case Pitching, and the Audit Case Forum.</p>
+      </article>
+
+      <article class="ev-card" data-tilt data-reveal>
+        <div class="ev-top">
+          <span class="ev-num">03 — SHARPEN</span>
+          <div class="ev-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="10" y="8" width="30" height="20" rx="2"/><path d="M18 22v-5M24 22v-8M30 22v-4"/><path d="M9 40c1.5-5 5-7 8-7s6.5 2 8 7"/><circle cx="17" cy="30" r="3.4"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Training</h3>
+        <p>Aligned with "Stepping Up to Practice: Navigating Risk, Adjustments, and Judgment
+        in Audit Execution," this training builds essential auditing skills hands-on — risk
+        identification, adjustment entries, and professional judgment in one cohesive framework.</p>
+      </article>
+
+      <article class="ev-card" data-tilt data-reveal>
+        <div class="ev-top">
+          <span class="ev-num">04 — LEARN</span>
+          <div class="ev-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="14" r="6"/><path d="M24 11v-3M24 20v3M27 14h3M18 14h3"/><path d="M10 42c1.8-6 6-9 9-9M38 42c-1.8-6-6-9-9-9"/><circle cx="13" cy="28" r="3.6"/><circle cx="35" cy="28" r="3.6"/><path d="M20 42c.8-4 2.4-6 4-6s3.2 2 4 6"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Workshop</h3>
+        <p>The 25th ATV's Workshop provides comprehensive insights on the entire flow of the
+        competition — benefits and tips on joining Audit Competition &amp; Audit Case Challenge,
+        given by previous judges and winners of last year's ATV.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section class="section timeline" id="timeline">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">The Audit Trail</span>
+      <h2 class="h2">Season <em>Timeline</em></h2>
+      <p class="lead">Scroll to trace the journey — every milestone gets verified. ✓</p>
+    </div>
+
+    <div class="tl" id="tl">
+      <div class="tl-spine"><div class="tl-progress" id="tlProgress"></div></div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Nov 1st, 2025</span><h4>Workshop</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Nov 7th, 2025</span><h4>Audit Competition &amp; Case Challenge — Open Registrations</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Nov 28th, 2025</span><h4>Training</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Feb 12th, 2026</span><h4>Audit Competition Semifinal</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Feb 14th, 2026</span><h4>Audit Case Challenge Semifinal</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Feb 18th, 2026</span><h4>International Audit Seminar</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Mar 6th, 2026</span><h4>Company Visit</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Mar 7th, 2026</span><h4>Audit Competition &amp; Case Challenge Finals</h4></div>
+      </div>
+
+      <div class="tl-item" data-reveal>
+        <div class="tl-node">
+          <svg class="lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>
+        </div>
+        <div class="tl-card"><span class="tl-date">Mar 7th, 2026</span><h4>Awarding Night</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ARTICLES ================= -->
+<section class="section articles" id="articles">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">SATVRDAY Series</span>
+      <h2 class="h2">Fresh <em>Articles</em></h2>
+      <p class="lead">Audit takes on real-world cases — written by FEB UI students, served every SATVRDAY.</p>
+    </div>
+
+    <div class="art-grid">
+      <!-- Read links use clean slugs (/article-title). Vercel + cleanUrls serves /slug from slug.html — the admin panel (phase 2) will generate those pages. -->
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <span class="big-idx">01</span>
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            28 February 2026
+          </span>
+          <h3>The Silent Crisis of Mount Gede Pangrango: A Failure of Environmental Compliance</h3>
+          <p class="art-authors"><b>Authors:</b> Rafael Lindung Saptaga, Nikita Virya Atmadja</p>
+          <div class="art-foot">
+            <a class="art-read" href="/the-silent-crisis-of-mount-gede-pangrango-a-failure-of-environmental-compliance" aria-label="Read: The Silent Crisis of Mount Gede Pangrango">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <span class="big-idx">02</span>
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            19 January 2026
+          </span>
+          <h3>Crypto on the Balance Sheet: Auditing Digital Assets After U.S. Regulatory Shifts</h3>
+          <p class="art-authors"><b>Authors:</b> Muhammad Farriz Al'Amin, Hermajesty Najwa Prasojo</p>
+          <div class="art-foot">
+            <a class="art-read" href="/crypto-on-the-balance-sheet-auditing-digital-assets-after-us-regulatory-shifts" aria-label="Read: Crypto on the Balance Sheet">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <span class="big-idx">03</span>
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            27 December 2025
+          </span>
+          <h3>Auditing The Louvre Heist: When Internal Control Falls Short</h3>
+          <p class="art-authors"><b>Authors:</b> Ahmad Yahya Zan, Graceda Tiandi Liangga</p>
+          <div class="art-foot">
+            <a class="art-read" href="/auditing-the-louvre-heist-when-internal-control-falls-short" aria-label="Read: Auditing The Louvre Heist">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="art-card" data-reveal>
+        <div class="art-cover">
+          <span class="big-idx">04</span>
+          <span class="satvrday">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            SATVRDAY
+          </span>
+        </div>
+        <div class="art-body">
+          <span class="art-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            23 November 2025
+          </span>
+          <h3>Examining Audit Complexity in the Evolving SPAC Merger Process</h3>
+          <p class="art-authors"><b>Authors:</b> Muhammad Saify Ilmi, Aji Maulana Mukti</p>
+          <div class="art-foot">
+            <a class="art-read" href="/examining-audit-complexity-in-the-evolving-spac-merger-process" aria-label="Read: Examining Audit Complexity in the SPAC Merger Process">Read
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPONSORS ================= -->
+<section class="section sponsors" id="sponsors">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Powered By</span>
+      <h2 class="h2">Company <em>Profile</em></h2>
+      <p class="lead">The brands standing behind the 25th ATV.</p>
+    </div>
+
+    <div class="sp-grid">
+      <article class="sp-card" data-reveal>
+        <span class="sp-logo jisu">JisuLife</span>
+        <h3>JisuLife</h3>
+        <p>Founded in 2016, JisuLife is dedicated to consistently pushing the boundaries of
+        high-performance, energy-efficient fan technology. Guided by the brand values of
+        Care, Comfort, Convenience, Collaboration, and Creativity, JisuLife has always
+        placed innovation at its core — portable cooling solutions designed to redefine
+        comfort in every outdoor experience, from adventurous getaways to daily commutes.</p>
+        <p>Specializing in portable fans — from handheld and neck fans to table, outdoor,
+        and stroller fans — JisuLife blends minimalist aesthetics, user-centric design, and
+        eco-conscious materials to deliver ergonomic comfort and lasting value.</p>
+      </article>
+
+      <article class="sp-card" data-reveal>
+        <span class="sp-logo juva">JUVA<small>by zap</small></span>
+        <h3>Juva by ZAP</h3>
+        <p>Juva by ZAP is a skincare brand developed by ZAP Clinic, a beauty and aesthetic
+        service provider in Indonesia. Introduced as part of ZAP's expansion into skincare,
+        it offers serums, sunscreen, toner, cleansers, and body care products that complement
+        professional aesthetic treatments — built on clinically tested formulations and
+        active ingredients supporting skin health.</p>
+        <p>Distributed through ZAP Clinic outlets and official online marketplaces, Juva by
+        ZAP leverages ZAP's aesthetic research to provide skincare that is safe, effective,
+        and suitable for everyday use.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section class="section partners" id="partners">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Backed By The Best</span>
+      <h2 class="h2">Partners <em>&amp; Friends</em></h2>
+    </div>
+
+    <!-- Tip: swap any pill for a real logo — <img src="/logos/name.png" alt="Name" style="height:44px"> -->
+    <div class="p-group" data-reveal>
+      <h3 class="p-title">Our <em>Sponsorship</em></h3>
+      <div class="lg-wall">
+        <span class="lg-pill major">Pertamina Gas Negara</span>
+        <span class="lg-pill major">Jamkrindo · a member of IFG</span>
+        <span class="lg-pill">The Institute of Internal Auditors Indonesia</span>
+        <span class="lg-pill">Se'Indonesia</span>
+        <span class="lg-pill">JisuLife</span>
+        <span class="lg-pill">Elnusa</span>
+        <span class="lg-pill">Kopi Kenangan</span>
+        <span class="lg-pill">Cakap</span>
+        <span class="lg-pill">Happy Pet</span>
+        <span class="lg-pill">Cris Bar</span>
+        <span class="lg-pill">The Harvest</span>
+        <span class="lg-pill">Kemuning Konveksi</span>
+        <span class="lg-pill">Jamkrindo Syariah</span>
+        <span class="lg-pill">OT</span>
+        <span class="lg-pill">IDX · Indonesia Stock Exchange</span>
+        <span class="lg-pill">Juva by ZAP</span>
+        <span class="lg-pill">Perhutani</span>
+        <span class="lg-pill">Ajaib Alpha</span>
+        <span class="lg-pill">ITO EN</span>
+        <span class="lg-pill">Azarine</span>
+        <span class="lg-pill">JIEP</span>
+        <span class="lg-pill">MT Connection</span>
+        <span class="lg-pill">ILUNI FEB UI</span>
+      </div>
+    </div>
+
+    <div class="p-group" data-reveal>
+      <h3 class="p-title">Our <em>Media Partnership</em></h3>
+      <div class="lg-wall">
+        <span class="lg-pill">Metro TV</span>
+        <span class="lg-pill">MetroTVNews.com</span>
+        <span class="lg-pill">Suara.com</span>
+        <span class="lg-pill">Kompasiana</span>
+        <span class="lg-pill">Yoursay.id</span>
+        <span class="lg-pill">Bisnis Indonesia</span>
+        <span class="lg-pill">DataIndonesia.id</span>
+        <span class="lg-pill">Republika</span>
+        <span class="lg-pill">DAAI TV</span>
+        <span class="lg-pill">Akurat.co</span>
+        <span class="lg-pill">Tempo</span>
+        <span class="lg-pill">Ruang Seminar</span>
+      </div>
+    </div>
+
+    <div class="p-group" data-reveal>
+      <h3 class="p-title">Our <em>Working Partner</em></h3>
+      <div class="lg-wall">
+        <span class="lg-pill major">The Institute of Internal Auditors Indonesia</span>
+        <span class="lg-pill major">RSM</span>
+        <span class="lg-pill major">KPMG</span>
+        <span class="lg-pill major">ACCA</span>
+        <span class="lg-pill major">TYMBA</span>
+        <span class="lg-pill major">PwC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BIG CTA ================= -->
+<section class="section cta" id="join">
+  <span class="ghost-word" aria-hidden="true">#ActualizingTheVision</span>
+  <div class="wrap" data-reveal>
+    <span class="eyebrow">The Stage Is Yours</span>
+    <h2>Ready to <em>actualize</em> the vision?</h2>
+    <p class="lead center">Join the biggest and the oldest audit event held by Accounting
+    Students of FEB UI — and transform with us.</p>
+    <div class="btns">
+      <a class="btn btn-solid" href="#contact" data-magnetic>Get in Touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="https://instagram.com/atvfebui" target="_blank" rel="noopener" data-magnetic>Follow @atvfebui
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand" data-reveal>
+        <a class="brand" href="#home" aria-label="ATV home">
+          <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="url(#gmark2)"/>
+            <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
+            <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
+            <defs><linearGradient id="gmark2" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
+          </svg>
+          <span><b>ATV</b><small>Auditor's Transformation Venture</small></span>
+        </a>
+        <p>The Biggest and The Oldest Audit Event Held by Accounting Students of FEB UI.
+        <span class="hash">#ActualizingTheVision</span></p>
+      </div>
+
+      <div data-reveal>
+        <h4 class="f-h">Address</h4>
+        <p class="f-addr">Fakultas Ekonomi dan Bisnis<br>Universitas Indonesia, Depok</p>
+      </div>
+
+      <div data-reveal>
+        <h4 class="f-h">Follow Us</h4>
+        <div class="socials">
+          <a href="https://instagram.com/atvfebui" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+            @atvfebui
+          </a>
+          <a href="https://www.tiktok.com/@atvfebui" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2 1.8 3.6 3.9 3.9v3.1c-1.5 0-2.9-.5-3.9-1.2v6.5c0 3.6-2.9 6.2-6.3 6.2A6.1 6.1 0 0 1 4 15.4c0-3.4 2.7-6.1 6.1-6.1.3 0 .7 0 1 .1v3.2a2.9 2.9 0 0 0-1-.2 2.9 2.9 0 1 0 2.9 3V3h3.6z"/></svg>
+            @atvfebui
+          </a>
+          <a href="https://www.youtube.com/@atvfebui25" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.6.5a2.8 2.8 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5zM9.8 15.5v-7l6 3.5-6 3.5z"/></svg>
+            @atvfebui25
+          </a>
+          <a href="#" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8a.6.6 0 0 0 .6.6h16.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6zM8.3 18.4H5.7V9.7h2.6v8.7zM7 8.5a1.6 1.6 0 1 1 0-3.1 1.6 1.6 0 0 1 0 3.1zm11.4 9.9h-2.6v-4.3c0-1 0-2.3-1.4-2.3s-1.7 1.1-1.7 2.3v4.3h-2.6V9.7h2.5v1.2h.1a2.8 2.8 0 0 1 2.5-1.4c2.6 0 3.2 1.8 3.2 4v4.9z"/></svg>
+            ATV FEB UI
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="f-h" style="text-align:center;margin-top:3.4rem">Contact Us</h4>
+    <div class="contact-grid">
+      <div class="pic-card" data-reveal>
+        <b>Natan</b><em>Information &amp; Registration</em>
+        <a href="tel:+6287878775046"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>087878775046</a>
+        <a href="mailto:inreg.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>inreg.atvfebui@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Alda</b><em>Competition</em>
+        <a href="tel:+6285161837128"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>085161837128</a>
+        <a href="mailto:competitionatv25@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>competitionatv25@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Woro</b><em>Event</em>
+        <a href="tel:+6281586659365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>081586659365</a>
+        <a href="mailto:atvfebui.event@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>atvfebui.event@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Dona</b><em>Sponsorship &amp; In-Kind</em>
+        <a href="tel:+62895412108592"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>0895412108592</a>
+        <a href="mailto:sponsorshipthe25thatv@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>sponsorshipthe25thatv@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Mardan</b><em>Marketing</em>
+        <a href="tel:+6282256302385"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>082256302385</a>
+        <a href="mailto:marketing.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>marketing.atvfebui@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> Auditor's Transformation Venture. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+/* ============================================================
+   ATV 25 — Interaction Engine
+   NOTE ON THEME PERSISTENCE:
+   This artifact keeps the chosen theme in memory only.
+   When you self-host, you can persist it by swapping the two
+   marked lines below for localStorage.getItem/setItem('atv-theme').
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var doc = document.documentElement;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (!reduced) doc.style.scrollBehavior = 'smooth';
+
+  /* ---------------- Theme toggle (in-memory) ---------------- */
+  var theme = 'dark'; // self-host: localStorage.getItem('atv-theme') || 'dark'
+  var starColor = '#F5A800';
+
+  function readStarColor() {
+    var c = getComputedStyle(doc).getPropertyValue('--gold').trim();
+    if (c) starColor = c;
+  }
+  function applyTheme(t) {
+    theme = t;
+    doc.setAttribute('data-theme', t);
+    // self-host: localStorage.setItem('atv-theme', t)
+    readStarColor();
+  }
+  readStarColor();
+
+  var themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      applyTheme(theme === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  /* ---------------- Preloader ---------------- */
+  var loader = document.getElementById('loader');
+  var introDone = false;
+  function finishLoad() {
+    if (introDone) return;
+    introDone = true;
+    if (loader) loader.classList.add('done');
+    heroIntro();
+  }
+  window.addEventListener('load', finishLoad);
+  document.addEventListener('DOMContentLoaded', function () { setTimeout(finishLoad, 300); });
+  setTimeout(finishLoad, 1200); // hard failsafe — never trap the page behind the loader
+
+  /* ---------------- Scroll: progress / nav / toTop ---------------- */
+  var progress = document.getElementById('progress');
+  var nav = document.getElementById('nav');
+  var toTop = document.getElementById('toTop');
+  var ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY || doc.scrollTop;
+      var max = doc.scrollHeight - window.innerHeight;
+      if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+      if (nav) nav.classList.toggle('scrolled', y > 24);
+      if (toTop) toTop.classList.toggle('show', y > 640);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ---------------- Scrollspy ---------------- */
+  var spyLinks = Array.prototype.slice.call(document.querySelectorAll('[data-spy]'));
+  var spyMap = {};
+  spyLinks.forEach(function (a) {
+    var id = (a.getAttribute('href') || '').replace('#', '');
+    var sec = document.getElementById(id);
+    if (sec) spyMap[id] = a;
+  });
+  if ('IntersectionObserver' in window && Object.keys(spyMap).length) {
+    var spyObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          spyLinks.forEach(function (a) { a.classList.remove('active'); });
+          var link = spyMap[en.target.id];
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-38% 0px -55% 0px' });
+    Object.keys(spyMap).forEach(function (id) {
+      spyObs.observe(document.getElementById(id));
+    });
+  }
+
+  /* ---------------- Mobile menu ---------------- */
+  var burger = document.getElementById('burger');
+  var mMenu = document.getElementById('mMenu');
+  function setMenu(open) {
+    if (!burger || !mMenu) return;
+    burger.classList.toggle('open', open);
+    mMenu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  if (burger && mMenu) {
+    burger.addEventListener('click', function () {
+      setMenu(!mMenu.classList.contains('open'));
+    });
+    mMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenu(false);
+    });
+  }
+
+  /* ---------------- Custom cursor ---------------- */
+  var dot = document.getElementById('cursorDot');
+  var halo = document.getElementById('cursorHalo');
+  if (finePointer && !reduced && dot && halo) {
+    var mx = innerWidth / 2, my = innerHeight / 2, hx = mx, hy = my;
+    window.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
+    }, { passive: true });
+    (function haloLoop() {
+      hx += (mx - hx) * 0.16;
+      hy += (my - hy) * 0.16;
+      halo.style.left = hx + 'px';
+      halo.style.top = hy + 'px';
+      requestAnimationFrame(haloLoop);
+    })();
+    document.addEventListener('mouseover', function (e) {
+      var t = e.target.closest('a, button, [data-tilt]');
+      halo.classList.toggle('is-hover', !!t);
+    });
+  }
+
+  /* ---------------- Starfield canvas ---------------- */
+  var canvas = document.getElementById('stars');
+  if (canvas && canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+    var lite = window.matchMedia('(max-width: 820px), (pointer: coarse)').matches;
+    var stars = [];
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, lite ? 1 : 1.5);
+    var pmx = -9999, pmy = -9999;
+    var running = true, heroVisible = true;
+
+    function sizeCanvas() {
+      var r = canvas.parentElement.getBoundingClientRect();
+      W = r.width; H = r.height;
+      canvas.width = W * DPR;
+      canvas.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      seed();
+    }
+    function seed() {
+      var n = lite ? Math.min(46, Math.floor((W * H) / 16000)) : Math.min(110, Math.floor((W * H) / 12000));
+      stars = [];
+      for (var i = 0; i < n; i++) {
+        stars.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.7 + 0.5,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: (Math.random() - 0.5) * 0.22,
+          tw: Math.random() * Math.PI * 2
+        });
+      }
+    }
+    function drawStatic() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = starColor;
+      stars.forEach(function (s) {
+        ctx.globalAlpha = 0.5;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    }
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      var i, j, s;
+      for (i = 0; i < stars.length; i++) {
+        s = stars[i];
+        s.x += s.vx; s.y += s.vy; s.tw += 0.03;
+        if (s.x < -10) s.x = W + 10; if (s.x > W + 10) s.x = -10;
+        if (s.y < -10) s.y = H + 10; if (s.y > H + 10) s.y = -10;
+        var dx = s.x - pmx, dy = s.y - pmy;
+        var d2 = dx * dx + dy * dy;
+        if (d2 < 16900 && d2 > 1) { // gentle repel within 130px
+          var d = Math.sqrt(d2);
+          s.x += (dx / d) * 0.6;
+          s.y += (dy / d) * 0.6;
+        }
+        ctx.globalAlpha = 0.35 + Math.abs(Math.sin(s.tw)) * 0.55;
+        ctx.fillStyle = starColor;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      if (!lite) { // constellation lines are desktop-only (O(n²) is too heavy for phones)
+        ctx.globalAlpha = 0.14;
+        ctx.strokeStyle = starColor;
+        ctx.lineWidth = 1;
+        for (i = 0; i < stars.length; i++) {
+          for (j = i + 1; j < stars.length; j++) {
+            var ax = stars[i].x - stars[j].x, ay = stars[i].y - stars[j].y;
+            var dd = ax * ax + ay * ay;
+            if (dd < 12100) { // link within 110px
+              ctx.beginPath();
+              ctx.moveTo(stars[i].x, stars[i].y);
+              ctx.lineTo(stars[j].x, stars[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+    sizeCanvas();
+    window.addEventListener('resize', sizeCanvas);
+    if (reduced) {
+      drawStatic();
+    } else {
+      canvas.parentElement.addEventListener('mousemove', function (e) {
+        var r = canvas.getBoundingClientRect();
+        pmx = e.clientX - r.left; pmy = e.clientY - r.top;
+      }, { passive: true });
+      canvas.parentElement.addEventListener('mouseleave', function () {
+        pmx = -9999; pmy = -9999;
+      });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (en) {
+          heroVisible = en[0].isIntersecting;
+          running = heroVisible && !document.hidden;
+        }).observe(canvas);
+      }
+      document.addEventListener('visibilitychange', function () {
+        running = heroVisible && !document.hidden;
+      });
+      (function loop() { // draw only when the hero is on screen & tab is active
+        if (running) frame();
+        requestAnimationFrame(loop);
+      })();
+    }
+  }
+
+  /* ---------------- Count-up stats ---------------- */
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window) {
+    var cObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        cObs.unobserve(en.target);
+        var el = en.target;
+        var end = parseInt(el.getAttribute('data-count'), 10) || 0;
+        var start = parseInt(el.textContent, 10) || 0;
+        if (reduced) { el.textContent = end; return; }
+        var t0 = null, dur = 1600;
+        function step(t) {
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / dur, 1);
+          var e = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(start + (end - start) * e);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (c) { cObs.observe(c); });
+  }
+
+  /* ---------------- 3D tilt cards ---------------- */
+  if (finePointer && !reduced) {
+    document.querySelectorAll('[data-tilt]').forEach(function (card) {
+      var rAF = null;
+      card.addEventListener('pointermove', function (e) {
+        if (rAF) return;
+        rAF = requestAnimationFrame(function () {
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--mx', (px * 100) + '%');
+          card.style.setProperty('--my', (py * 100) + '%');
+          card.style.transform =
+            'perspective(900px) rotateX(' + ((0.5 - py) * 8).toFixed(2) + 'deg)' +
+            ' rotateY(' + ((px - 0.5) * 10).toFixed(2) + 'deg) translateY(-4px)';
+          rAF = null;
+        });
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------------- Magnetic buttons ---------------- */
+  if (finePointer && !reduced) {
+    document.querySelectorAll('[data-magnetic]').forEach(function (btn) {
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - r.left - r.width / 2;
+        var y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = 'translate(' + x * 0.22 + 'px,' + y * 0.28 + 'px)';
+      });
+      btn.addEventListener('pointerleave', function () {
+        btn.style.transition = 'transform .5s cubic-bezier(.2,.9,.25,1.4)';
+        btn.style.transform = '';
+        setTimeout(function () { btn.style.transition = ''; }, 500);
+      });
+    });
+  }
+
+  /* ---------------- Footer year ---------------- */
+  var yr = document.getElementById('year');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ================================================================
+     GSAP layer — runs after deferred CDN scripts. Everything below
+     is progressive enhancement: content is fully visible without it.
+     ================================================================ */
+  var heroIntro = function () {}; // replaced below when GSAP is ready
+
+  function initGSAP() {
+    if (reduced || typeof gsap === 'undefined') return;
+
+    if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+
+    /* --- hero: split headline into characters --- */
+    var rows = document.querySelectorAll('[data-split]:not(.shimmer)'); // never split the gradient row — splitting breaks background-clip and makes it unreadable
+    rows.forEach(function (row) {
+      var text = row.textContent;
+      row.textContent = '';
+      row.style.display = 'inline-block';
+      for (var i = 0; i < text.length; i++) {
+        var ch = document.createElement('span');
+        ch.className = 'ch';
+        ch.style.display = 'inline-block';
+        ch.style.willChange = 'transform';
+        ch.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+        row.appendChild(ch);
+      }
+    });
+
+    heroIntro = function () {
+      var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('#heroTitle .ch', {
+        yPercent: 115,
+        rotate: 6,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.028
+      });
+      tl.from('#heroTitle .shimmer', {
+        y: 46,
+        opacity: 0,
+        duration: 0.9
+      }, '-=0.7');
+      tl.from('[data-hero-fade]', {
+        y: 26,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.12
+      }, '-=0.45');
+    };
+    // If the page already finished loading before GSAP initialised, fire now.
+    if (introDone) heroIntro();
+
+    if (typeof ScrollTrigger === 'undefined') return;
+
+    /* --- generic reveals --- */
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      var isGroup = el.getAttribute('data-reveal') === 'group';
+      var targets = isGroup ? el.children : el;
+      gsap.from(targets, {
+        y: 26,
+        opacity: 0,
+        duration: 0.85,
+        ease: 'power2.out',
+        stagger: isGroup ? 0.1 : 0,
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+
+    /* --- timeline: spine draw + node check-off --- */
+    var tl = document.getElementById('tl');
+    var tlProg = document.getElementById('tlProgress');
+    if (tl && tlProg) {
+      gsap.fromTo(tlProg, { scaleY: 0 }, {
+        scaleY: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: tl,
+          start: 'top 72%',
+          end: 'bottom 55%',
+          scrub: 0.4
+        }
+      });
+      tl.querySelectorAll('.tl-item').forEach(function (item) {
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 62%',
+          onEnter: function () { item.classList.add('done'); },
+          onLeaveBack: function () { item.classList.remove('done'); }
+        });
+      });
+    }
+
+    /* --- decorative parallax --- */
+    document.querySelectorAll('[data-speed]').forEach(function (el) {
+      var spd = parseFloat(el.getAttribute('data-speed')) || 0;
+      gsap.to(el, {
+        y: spd * 12,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el.closest('section') || el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGSAP);
+  } else {
+    initGSAP();
+  }
+})();
+</script>
+</body>
+</html>
