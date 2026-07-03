@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto on the Balance Sheet: Auditing Digital Assets After U.S. Regulatory Shifts | SATVRDAY — The 25th ATV</title>
+<meta name="description" content="How the SEC's shift from SAB 121 to SAB 122 redistributes audit risk for crypto assets — by Muhammad Farriz Al'Amin & Hermajesty Najwa Prasojo, FEB UI.">
+<meta property="og:title" content="Crypto on the Balance Sheet: Auditing Digital Assets After U.S. Regulatory Shifts">
+<meta property="og:description" content="SATVRDAY — The 25th Auditor's Transformation Venture, FEB UI.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F5A800'/%3E%3Ccircle cx='27' cy='26' r='11' fill='none' stroke='%231A0F08' stroke-width='5'/%3E%3Cpath d='M34 35 L47 50 L41 54 L31 38 Z' fill='%231A0F08'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="/styles/site.css">
+<link rel="stylesheet" href="/styles/article.css">
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="cursor-halo" id="cursorHalo"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<div id="loader" aria-hidden="true">
+  <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
+    <circle cx="27" cy="26" r="13" stroke="#F5A800" stroke-width="4.5"/>
+    <path d="M36 36 L50 52" stroke="#F5A800" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="27" cy="26" r="4" fill="#FFD666"/>
+  </svg>
+  <div class="loader-word" aria-label="Loading">
+    <span style="--i:0">T</span><span style="--i:1">H</span><span style="--i:2">E</span><span style="--i:3">&nbsp;</span><span style="--i:4">2</span><span style="--i:5">5</span><span style="--i:6">T</span><span style="--i:7">H</span><span style="--i:8">&nbsp;</span><span style="--i:9">A</span><span style="--i:10">T</span><span style="--i:11">V</span>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="nav scrolled" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="ATV home">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="url(#gmark)"/>
+        <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
+        <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
+        <defs><linearGradient id="gmark" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
+      </svg>
+      <span><b>ATV</b><small>The 25th · FEB UI</small></span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="/#vision">Vision</a></li>
+        <li><a href="/#events">Events</a></li>
+        <li><a href="/#timeline">Timeline</a></li>
+        <li><a href="/#articles">Articles</a></li>
+        <li><a href="/#sponsors">Sponsors</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <button class="toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-solid" href="/#contact" data-magnetic>Register
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="m-menu" id="mMenu">
+  <a href="/#vision" style="--i:0"><i>01</i>Vision</a>
+  <a href="/#events" style="--i:1"><i>02</i>Events</a>
+  <a href="/#timeline" style="--i:2"><i>03</i>Timeline</a>
+  <a href="/#articles" style="--i:3"><i>04</i>Articles</a>
+  <a href="/#sponsors" style="--i:4"><i>05</i>Sponsors</a>
+  <a href="/#contact" style="--i:5"><i>06</i>Contact</a>
+  <p class="tagline">#ActualizingTheVision — The 25th ATV</p>
+</div>
+
+<a class="a-back" href="/#articles">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+  Back to Articles
+</a>
+
+<main>
+
+<!-- ================= COVER ================= -->
+<section class="a-cover">
+  <div class="wrap a-cover-inner">
+    <div class="a-logos" data-reveal>
+      <div class="uni">
+        <img src="/logos/ui.png" alt="Universitas Indonesia" height="34"
+             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2734%27 height=%2734%27 viewBox=%270 0 34 34%27%3E%3Ccircle cx=%2717%27 cy=%2717%27 r=%2716%27 fill=%27%23FFC72C%27 stroke=%27%231D3E1F%27 stroke-width=%271.2%27/%3E%3Cpath d=%27M17 8l3 6-3 2-3-2z%27 fill=%27%231D3E1F%27/%3E%3C/svg%3E'">
+        <span><b>Universitas Indonesia</b><small>SPA FEB-UI</small></span>
+      </div>
+      <div class="a-atv-mark">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="url(#gmark3)"/>
+          <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
+          <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
+          <defs><linearGradient id="gmark3" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
+        </svg>
+        <span><b>ATV</b><small>Auditor's Transformation Venture</small></span>
+      </div>
+    </div>
+
+    <div class="a-satvrday" data-reveal>
+      <span class="kicker">The 25th</span>
+      <div class="lockup">SATVRDAY</div>
+      <span class="sub">Auditor's Transformation Venture</span>
+    </div>
+
+    <h1 class="a-hero-title center" data-reveal>
+      Crypto on <span class="accent">The Balance Sheet:</span>
+    </h1>
+    <p class="a-hero-sub center" data-reveal>Auditing Digital Assets After 2025 Regulatory Shifts</p>
+  </div>
+</section>
+
+<!-- ================= META ================= -->
+<section class="a-meta-bar">
+  <div class="wrap a-meta-wrap" data-reveal>
+    <h2 class="a-title2">Crypto on the Balance Sheet: Auditing Digital Assets After U.S. Regulatory Shifts</h2>
+    <div class="a-meta-row">
+      <span class="a-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+        Muhammad Farriz Al'Amin, Hermajesty Najwa Prasojo
+      </span>
+      <span class="a-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+        19 January 2026
+      </span>
+    </div>
+    <p class="a-faculty-line">Faculty of Economics and Business, Universitas Indonesia</p>
+  </div>
+</section>
+
+<!-- ================= PROSE ================= -->
+<article class="wrap a-prose" data-reveal="group">
+
+<h2>Introduction</h2>
+<p>The rising presence of crypto assets on corporate balance sheets has been a significant issue lately. Corporations, investment funds, and financial intermediaries now hold cryptocurrencies and tokenized assets as investments, payment instruments, or emergency funds. While this trend reflects financial innovation and digitalization, it also challenges traditional audit practice. Crypto assets differ fundamentally from conventional financial assets due to their decentralized nature, reliance on private key control, price volatility, and operation on distributed ledgers. These features complicate core audit assertions, including existence, rights and obligations, and valuation, increasing inherent and control risks. Against this backdrop, recent U.S. regulatory changes have materially transformed the recognition and reporting of crypto assets under US GAAP, with direct implications for entities' risk profiles and the scope, focus, and intensity of audit responses.</p>
+
+<h2>U.S. Regulatory Shifts</h2>
+<p>In 2022, the U.S. Securities and Exchange Commission (SEC) issued Staff Accounting Bulletin No. 121 (SAB 121), which required entities safeguarding crypto assets for customers to recognize a corresponding asset and liability on their balance sheets. This requirement reflected regulatory concern over the unique risks of crypto custody, including technological vulnerabilities, legal uncertainty, and potential loss of private keys. SAB 121 effectively forced balance-sheet recognition regardless of whether a loss event was likely to happen. Under SAB 121, there is no explicit requirement to apply a specific accounting framework, as the associated liability and corresponding asset are required to be recognized and measured at fair value. This approach effectively treated custody risk as a balance-sheet obligation, significantly affecting leverage, capital ratios, and reported financial position.</p>
+<p>In early 2025, the SEC revoked SAB 121 and replaced it with SAB 122. Under SAB 122, entities are no longer required to automatically recognize custody-related assets and liabilities. Instead, they must assess their obligations using existing accounting standards, such as ASC 450 for contingencies or IAS 37 equivalents, recognizing liabilities only when a loss contingency is probable and reasonably estimable. This shift marks a transition from rule-based recognition to a judgement-based framework. It increases reliance on management judgment, particularly in assessing legal exposure, operational risk, and control effectiveness.</p>
+
+<h2>Auditor Impact</h2>
+<p>Under SAB 121, entities were required to comply with a uniform and prescriptive rule mandating that all cryptocurrency held in a custodial capacity be recognized on the balance sheet as both an asset and a corresponding liability. As a result, the auditor's focus was predominantly rule-based, emphasizing explicit compliance with SAB 121. Audit procedures were largely procedural and mechanical, as the standard allowed no exceptions: all relevant digital assets were required to be recognized in the financial position, regardless of the underlying risk profile.</p>
+<p>In contrast, SAB 122 introduces a framework that necessitates substantially greater auditor judgment in assessing the appropriate accounting treatment of cryptocurrency. Auditors must now evaluate whether crypto-related obligations meet the criteria for recognition based on the probability of loss, the reliability of loss estimation, and the extent of legal and operational exposure. Consequently, not all cryptocurrency values are automatically classified as liabilities, which may result in a balance sheet that more closely reflects the entity's underlying economic reality. This regulatory shift reorients audit practice from a rule-based approach toward a judgment-based assessment.</p>
+<p>However, the increased reliance on auditor and management judgment under SAB 122 also introduces heightened audit risk. These risks include management bias in assessing probability and measurement of losses, the potential understatement of liabilities, and the possibility of misleading or insufficient disclosures. Accordingly, auditors are required to exercise enhanced professional skepticism and place greater emphasis on evaluating the robustness of management's risk assessments, internal controls, and disclosure practices to mitigate the risk of material misstatement.</p>
+
+<h2>How Regulatory Change Alters Risk of Material Misstatement (RMM)</h2>
+<p><strong>Rights and obligations.</strong> With SAB 122 removing automatic recognition of custody liabilities, the assessment of whether an obligation exists depends heavily on contractual terms, custody arrangements, and legal enforceability. Misinterpretation of custody responsibilities or inadequate understanding of private key control creates heightened risk of understatement of liabilities or inadequate disclosure.</p>
+<p><strong>Valuation.</strong> Mandatory fair value measurement under ASU 2023-08 heightens valuation risk by exposing financial reporting to highly volatile crypto markets characterized by fragmented pricing, continuous trading, and uneven liquidity. Reliance on inappropriate principal markets, thinly traded exchanges, or third-party custodians and complex wallet infrastructures further increases susceptibility to material misstatement and elevates inherent and control risks that challenge effective audit evaluation.</p>
+<p><strong>Existence and completeness.</strong> Ownership of crypto assets is evidenced by control over private keys rather than legal title. Weak key-management controls, reliance on third-party custodians, or deficiencies in wallet reconciliation increase the risk that recorded assets do not exist or are incomplete.</p>
+<p><strong>Presentation and disclosure.</strong> Reduced prescriptive guidance heightens disclosure risk. Management may under-disclose custody risks, valuation methodologies, or concentration exposures, particularly where liabilities are no longer recognized on the balance sheet.</p>
+
+<h2>Conclusion</h2>
+<p>The post-2025 U.S. regulatory shift does not simplify the audit of digital assets; it redistributes risk and increases reliance on professional judgment. By reshaping recognition rules and reinforcing fair value measurement, regulators have elevated the importance of audit responses that focus on valuation, custody, controls, and disclosure. In this environment, audit quality depends less on compliance with prescriptive rules and more on robust risk assessment, skepticism, and technologically informed assurance.</p>
+
+<div class="a-refs">
+  <h2>References</h2>
+  <ol>
+    <li>Cryptoworth. (2025). How to Audit Crypto Assets: A Step-by-Step Guide. Accessed from: <a href="https://www.cryptoworth.com/blog/how-to-audit-crypto-assets" target="_blank" rel="noopener">cryptoworth.com/blog/how-to-audit-crypto-assets</a></li>
+    <li>Gillison, D. (2025). Wall Street regulator revokes accounting guidance on crypto assets. Reuters. Accessed from: <a href="https://www.reuters.com/technology/wall-street-regulator-revokes-accounting-guidance-crypto-assets-2025-01-24/" target="_blank" rel="noopener">reuters.com/technology/wall-street-regulator-revokes-accounting-guidance-crypto-assets-2025-01-24</a></li>
+    <li>Herbert, M. (2025). Auditing digital assets. Accounting and Business. Accessed from: <a href="https://abmagazine.accaglobal.com/global/articles/2025/apr/practice/auditing-digital-assets.html" target="_blank" rel="noopener">abmagazine.accaglobal.com/.../auditing-digital-assets.html</a></li>
+    <li>Hester, M. (2025). Blockchain Association. Accessed from: <a href="https://www.sec.gov/file/ctf-blockchain-association-062625" target="_blank" rel="noopener">sec.gov/file/ctf-blockchain-association-062625</a></li>
+    <li>Muir, S., Tricarichi, N., Ahuja, K. (2024). Digital assets under IFRS Accounting Standards vs US GAAP: the basics. KPMG. Accessed from: <a href="https://kpmg.com/us/en/articles/2024/digital-assets-under-ifrs-accounting-standards.html" target="_blank" rel="noopener">kpmg.com/.../digital-assets-under-ifrs-accounting-standards.html</a></li>
+    <li>Park, A. &amp; Theisen. (2025). The SEC changes accounting rules for safeguarding crypto assets with its SAB 121 repeal. Deloitte. Accessed from: <a href="https://www.deloitte.com/us/en/services/audit-assurance/blogs/accounting-finance/sab-121-repeal.html" target="_blank" rel="noopener">deloitte.com/.../sab-121-repeal.html</a></li>
+    <li>Park, A. &amp; Theisen. (2025). SAB 121 and Done: SEC Issues SAB 122 to Rescind Guidance on Safeguarding Crypto Assets. Deloitte. Accessed from: <a href="https://dart.deloitte.com/USDART/home/publications/deloitte/heads-up/2025/sec-rescinds-sab-121-issues-sab-122-crypto-cryptocurrency" target="_blank" rel="noopener">dart.deloitte.com/.../sec-rescinds-sab-121-issues-sab-122</a></li>
+    <li>Schroeder, P. (2025). US regulator clears path for banks to engage in some crypto activities. Reuters. Accessed from: <a href="https://www.reuters.com/business/finance/us-bank-regulator-reaffirms-banks-can-engage-some-crypto-activities-2025-03-07/" target="_blank" rel="noopener">reuters.com/.../us-bank-regulator-reaffirms-banks-can-engage-some-crypto-activities-2025-03-07</a></li>
+  </ol>
+</div>
+
+</article>
+
+<!-- ================= END-OF-ARTICLE CHOICES ================= -->
+<section class="a-choices">
+  <div class="wrap">
+    <p>Where to next?</p>
+    <div class="btns">
+      <a class="btn btn-solid" href="https://atv-uifeb.vercel.app/#articles" data-magnetic>More Articles
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="https://atv-uifeb.vercel.app/" data-magnetic>ATV Home
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer id="contact">
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand" data-reveal>
+        <a class="brand" href="/" aria-label="ATV home">
+          <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="url(#gmark2)"/>
+            <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
+            <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
+            <defs><linearGradient id="gmark2" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
+          </svg>
+          <span><b>ATV</b><small>Auditor's Transformation Venture</small></span>
+        </a>
+        <p>The Biggest and The Oldest Audit Event Held by Accounting Students of FEB UI.
+        <span class="hash">#ActualizingTheVision</span></p>
+      </div>
+
+      <div data-reveal>
+        <h4 class="f-h">Address</h4>
+        <p class="f-addr">Fakultas Ekonomi dan Bisnis<br>Universitas Indonesia, Depok</p>
+      </div>
+
+      <div data-reveal>
+        <h4 class="f-h">Follow Us</h4>
+        <div class="socials">
+          <a href="https://instagram.com/atvfebui" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+            @atvfebui
+          </a>
+          <a href="https://www.tiktok.com/@atvfebui" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2 1.8 3.6 3.9 3.9v3.1c-1.5 0-2.9-.5-3.9-1.2v6.5c0 3.6-2.9 6.2-6.3 6.2A6.1 6.1 0 0 1 4 15.4c0-3.4 2.7-6.1 6.1-6.1.3 0 .7 0 1 .1v3.2a2.9 2.9 0 0 0-1-.2 2.9 2.9 0 1 0 2.9 3V3h3.6z"/></svg>
+            @atvfebui
+          </a>
+          <a href="https://www.youtube.com/@atvfebui25" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.6.5a2.8 2.8 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5zM9.8 15.5v-7l6 3.5-6 3.5z"/></svg>
+            @atvfebui25
+          </a>
+          <a href="#" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8a.6.6 0 0 0 .6.6h16.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6zM8.3 18.4H5.7V9.7h2.6v8.7zM7 8.5a1.6 1.6 0 1 1 0-3.1 1.6 1.6 0 0 1 0 3.1zm11.4 9.9h-2.6v-4.3c0-1 0-2.3-1.4-2.3s-1.7 1.1-1.7 2.3v4.3h-2.6V9.7h2.5v1.2h.1a2.8 2.8 0 0 1 2.5-1.4c2.6 0 3.2 1.8 3.2 4v4.9z"/></svg>
+            ATV FEB UI
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="f-h" style="text-align:center;margin-top:3.4rem">Contact Us</h4>
+    <div class="contact-grid">
+      <div class="pic-card" data-reveal>
+        <b>Natan</b><em>Information &amp; Registration</em>
+        <a href="tel:+6287878775046"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>087878775046</a>
+        <a href="mailto:inreg.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>inreg.atvfebui@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Alda</b><em>Competition</em>
+        <a href="tel:+6285161837128"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>085161837128</a>
+        <a href="mailto:competitionatv25@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>competitionatv25@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Woro</b><em>Event</em>
+        <a href="tel:+6281586659365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>081586659365</a>
+        <a href="mailto:atvfebui.event@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>atvfebui.event@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Dona</b><em>Sponsorship &amp; In-Kind</em>
+        <a href="tel:+62895412108592"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>0895412108592</a>
+        <a href="mailto:sponsorshipthe25thatv@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>sponsorshipthe25thatv@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Mardan</b><em>Marketing</em>
+        <a href="tel:+6282256302385"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>082256302385</a>
+        <a href="mailto:marketing.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>marketing.atvfebui@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> Auditor's Transformation Venture. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="/scripts/site.js"></script>
+</body>
+</html>
