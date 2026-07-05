@@ -296,6 +296,10 @@ html[data-theme="light"] .field input{background:rgba(255,255,255,.6)}
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
+<!-- Hidden relay: a real form POST to Google is far more reliable than fetch() for Forms submissions -->
+<iframe name="gfRelay" id="gfRelay" style="display:none" title="form submission relay"></iframe>
+<form id="gfHiddenForm" method="POST" target="gfRelay" style="display:none" aria-hidden="true"></form>
+
 <script src="/scripts/site.js"></script>
 <script>
 /* ================================================================
@@ -347,22 +351,26 @@ var GF = {
     var lbl = btn.querySelector('span');
     if (lbl) lbl.textContent = (document.documentElement.getAttribute('lang') === 'id') ? 'Mengirim…' : 'Submitting…';
 
-    var params = new URLSearchParams();
-    params.append(GF.name, name);
-    params.append(GF.email, email);
-    params.append(GF.phone, phone);
+    // ---- Real hidden-form POST (matches how Google's own form page submits — far more
+    // reliable than fetch() for Forms, which frequently gets silently dropped). ----
+    var hidden = document.getElementById('gfHiddenForm');
+    hidden.action = GF.action;
+    hidden.innerHTML = ''; // clear any previous inputs
+    [[GF.name, name], [GF.email, email], [GF.phone, phone]].forEach(function (pair) {
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = pair[0];
+      input.value = pair[1];
+      hidden.appendChild(input);
+    });
+    hidden.submit();
 
-    // Google Forms doesn't send CORS headers, so we fire-and-forget with no-cors.
-    fetch(GF.action, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
-    }).catch(function () { /* opaque response expected — ignore */ })
-      .finally(function () {
-        form.classList.add('hide');
-        success.classList.add('show');
-      });
+    // We can't read the cross-origin iframe's response, so we optimistically show success
+    // shortly after firing — this matches the network delay of a real Google Forms submit.
+    setTimeout(function () {
+      form.classList.add('hide');
+      success.classList.add('show');
+    }, 900);
   });
 })();
 </script>
