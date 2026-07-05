@@ -1,9 +1,5 @@
 /* ============================================================
    ATV 25 — Interaction Engine
-   NOTE ON THEME PERSISTENCE:
-   This artifact keeps the chosen theme in memory only.
-   When you self-host, you can persist it by swapping the two
-   marked lines below for localStorage.getItem/setItem('atv-theme').
    ============================================================ */
 (function () {
   'use strict';
