@@ -1,3 +1,9 @@
+/* ============================================================
+   THE 25TH ATV — DESIGN SYSTEM
+   Palette: Gold × Espresso (brand-consistent, elevated)
+   Type:    Space Grotesk (display) / Plus Jakarta Sans (body)
+            Fraunces Italic (editorial accent words)
+   ============================================================ */
 :root{
   --gold:#F5A800;
   --gold-hi:#FFD666;
@@ -637,3 +643,15 @@ html[data-theme="light"] .socials svg{color:var(--gold-deep)}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .scroll-cue,.cursor-dot,.cursor-halo{display:none}
 }
+
+
+/* ---------- language toggle (EN/ID) ---------- */
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;
+  font-family:var(--font-d);font-weight:700;font-size:.78rem;letter-spacing:.08em;
+  border:1.5px solid var(--line-strong);border-radius:999px;padding:.55rem 1rem;
+  color:var(--ink-3);transition:border-color .3s,transform .25s var(--ease);
+}
+.lang-toggle:hover{border-color:var(--gold);transform:translateY(-2px)}
+.lang-toggle .active{color:var(--accent-ink)}
+.lang-toggle .l-sep{opacity:.45}
