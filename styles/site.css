@@ -213,7 +213,8 @@ html[data-theme="light"] .toggle .moon{display:none}
 .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 .m-menu{
   position:fixed;top:0;left:0;right:0;bottom:0;inset:0;z-index:110;background:var(--bg0);
-  display:flex;flex-direction:column;justify-content:center;padding:0 8%;
+  display:flex;flex-direction:column;justify-content:center;padding:6rem 8% 2rem;
+  overflow-y:auto;
   clip-path:circle(0% at calc(100% - 44px) 44px);transition:clip-path .7s var(--ease),visibility .7s;
   visibility:hidden;
 }
