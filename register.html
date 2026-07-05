@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — The 25th ATV | FEB UI</title>
+<meta name="description" content="Register your interest for the Auditor's Transformation Venture — the biggest and oldest audit event held by Accounting Students of FEB UI.">
+<meta property="og:title" content="Register — The 25th ATV">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F5A800'/%3E%3Ccircle cx='27' cy='26' r='11' fill='none' stroke='%231A0F08' stroke-width='5'/%3E%3Cpath d='M34 35 L47 50 L41 54 L31 38 Z' fill='%231A0F08'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="/styles/site.css">
+<style>
+/* ---------- register page ---------- */
+.reg-hero{
+  min-height:100vh;min-height:100svh;display:flex;align-items:center;
+  position:relative;overflow:hidden;padding:8.5rem 0 4rem;
+  background:
+    radial-gradient(1000px 500px at 80% -10%,rgba(245,168,0,.18),transparent 60%),
+    radial-gradient(700px 460px at -10% 110%,rgba(201,123,18,.15),transparent 60%),
+    var(--bg0);
+}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.reg-copy .h2{margin-top:1rem}
+.reg-points{margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+.reg-point{display:flex;gap:.9rem;align-items:flex-start;color:var(--ink-2);font-size:.97rem}
+.reg-point svg{width:20px;height:20px;color:var(--gold);flex:none;margin-top:.15rem}
+
+.reg-card{
+  background:var(--card-grad);border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(1.8rem,3.5vw,2.8rem);box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.reg-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold-hi),var(--gold),var(--gold-deep));
+}
+.reg-card h3{font-family:var(--font-d);font-weight:700;font-size:1.5rem;margin-bottom:.4rem}
+.reg-card .sub{color:var(--ink-3);font-size:.92rem;margin-bottom:1.8rem}
+.field{margin-bottom:1.3rem}
+.field label{
+  display:block;font-family:var(--font-d);font-weight:600;font-size:.78rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.5rem;
+}
+.field input{
+  width:100%;box-sizing:border-box;font:inherit;color:var(--ink);
+  background:rgba(255,214,102,.05);border:1.5px solid var(--line-strong);border-radius:14px;
+  padding:.95rem 1.1rem;transition:border-color .25s,background .25s,box-shadow .25s;
+}
+html[data-theme="light"] .field input{background:rgba(255,255,255,.6)}
+.field input::placeholder{color:var(--ink-3);opacity:.7}
+.field input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px var(--glow);background:rgba(255,214,102,.09)}
+.field .err{display:none;color:#FF8A5C;font-size:.8rem;margin-top:.4rem}
+.field.invalid input{border-color:#E4602F}
+.field.invalid .err{display:block}
+.reg-submit{width:100%;justify-content:center;font-size:1rem;padding:1.1rem}
+.reg-note{margin-top:1rem;text-align:center;color:var(--ink-3);font-size:.78rem}
+
+/* success state */
+.reg-success{display:none;text-align:center;padding:2.5rem 0}
+.reg-success.show{display:block}
+.reg-success .ring{
+  width:88px;height:88px;margin:0 auto 1.4rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--gold-hi),var(--gold-deep));
+  box-shadow:0 0 0 10px var(--glow);animation:popIn .5s var(--ease);
+}
+.reg-success .ring svg{width:40px;height:40px;color:#1D0F04}
+@keyframes popIn{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+.reg-success h3{font-family:var(--font-d);font-weight:700;font-size:1.6rem;margin-bottom:.5rem}
+.reg-success p{color:var(--ink-2)}
+.reg-form.hide{display:none}
+
+@media(max-width:1024px){.reg-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="cursor-halo" id="cursorHalo"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<div id="loader" aria-hidden="true">
+  <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
+    <circle cx="27" cy="26" r="13" stroke="#F5A800" stroke-width="4.5"/>
+    <path d="M36 36 L50 52" stroke="#F5A800" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="27" cy="26" r="4" fill="#FFD666"/>
+  </svg>
+  <div class="loader-word" aria-label="Loading">
+    <span style="--i:0">T</span><span style="--i:1">H</span><span style="--i:2">E</span><span style="--i:3">&nbsp;</span><span style="--i:4">2</span><span style="--i:5">5</span><span style="--i:6">T</span><span style="--i:7">H</span><span style="--i:8">&nbsp;</span><span style="--i:9">A</span><span style="--i:10">T</span><span style="--i:11">V</span>
+  </div>
+</div>
+
+<header class="nav scrolled" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="ATV home">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="url(#gmark)"/>
+        <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
+        <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
+        <defs><linearGradient id="gmark" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
+      </svg>
+      <span><b><span class="t-short">ATV</span><span class="t-full">Auditor's Transformation Venture</span></b><small>The 25th · FEB UI</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="/#vision" data-lang-id="Visi">Vision</a></li>
+        <li><a href="/#events" data-lang-id="Acara">Events</a></li>
+        <li><a href="/#timeline" data-lang-id="Linimasa">Timeline</a></li>
+        <li><a href="/articles.html" data-lang-id="Artikel">Articles</a></li>
+        <li><a href="/#sponsors" data-lang-id="Sponsor">Sponsors</a></li>
+        <li><a href="/#contact" data-lang-id="Kontak">Contact</a></li>
+        <li><a href="/register.html" class="active" data-lang-id="Daftar">Register</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language between English and Indonesian">
+        <span class="l-en active">EN</span><span class="l-sep">/</span><span class="l-id">ID</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="m-menu" id="mMenu">
+  <a href="/#vision" style="--i:0"><i>01</i><span data-lang-id="Visi">Vision</span></a>
+  <a href="/#events" style="--i:1"><i>02</i><span data-lang-id="Acara">Events</span></a>
+  <a href="/#timeline" style="--i:2"><i>03</i><span data-lang-id="Linimasa">Timeline</span></a>
+  <a href="/articles.html" style="--i:3"><i>04</i><span data-lang-id="Artikel">Articles</span></a>
+  <a href="/#sponsors" style="--i:4"><i>05</i><span data-lang-id="Sponsor">Sponsors</span></a>
+  <a href="/#contact" style="--i:5"><i>06</i><span data-lang-id="Kontak">Contact</span></a>
+  <a href="/register.html" style="--i:6"><i>07</i><span data-lang-id="Daftar">Register</span></a>
+  <p class="tagline">#ActualizingTheVision — The 25th ATV</p>
+</div>
+
+<main>
+
+<section class="reg-hero">
+  <div class="wrap reg-grid">
+    <div class="reg-copy" data-reveal>
+      <span class="eyebrow" data-lang-id="Bergabunglah">Join The Venture</span>
+      <h2 class="h2" data-lang-id="Daftarkan <em>minatmu</em>">Register your <em>interest</em></h2>
+      <p class="lead" data-lang-id="Jadilah bagian dari acara audit terbesar dan tertua yang diselenggarakan oleh Mahasiswa Akuntansi FEB UI. Tinggalkan datamu — tim kami akan menghubungimu.">Be part of the biggest and the oldest audit event held by Accounting
+      Students of FEB UI. Drop your details and our team will reach out with everything
+      you need.</p>
+      <div class="reg-points">
+        <div class="reg-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span data-lang-id="Info pendaftaran Audit Competition &amp; Audit Case Challenge">Updates on Audit Competition &amp; Audit Case Challenge registrations</span>
+        </div>
+        <div class="reg-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span data-lang-id="Pengumuman Workshop, Training &amp; International Audit Seminar">Workshop, Training &amp; International Audit Seminar announcements</span>
+        </div>
+        <div class="reg-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span data-lang-id="Terhubung langsung dengan panitia ATV — tanpa spam">Direct line to the ATV committee — no spam, ever</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reg-card" data-reveal>
+      <form class="reg-form" id="regForm" novalidate>
+        <h3 data-lang-id="Pendaftaran">Registration</h3>
+        <p class="sub" data-lang-id="Isi datamu di bawah — hanya 20 detik.">Fill in your details below — takes 20 seconds.</p>
+
+        <div class="field" id="fName">
+          <label for="inName" data-lang-id="Nama Lengkap">Full Name</label>
+          <input id="inName" name="name" type="text" placeholder="e.g. Andi Prasetyo" autocomplete="name" required>
+          <span class="err" data-lang-id="Mohon isi namamu.">Please enter your name.</span>
+        </div>
+
+        <div class="field" id="fEmail">
+          <label for="inEmail">Email</label>
+          <input id="inEmail" name="email" type="email" placeholder="you@university.ac.id" autocomplete="email" required>
+          <span class="err" data-lang-id="Mohon isi alamat email yang valid.">Please enter a valid email address.</span>
+        </div>
+
+        <div class="field" id="fPhone">
+          <label for="inPhone" data-lang-id="Nomor Telepon">Phone Number</label>
+          <input id="inPhone" name="phone" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" inputmode="numeric" required>
+          <span class="err" data-lang-id="Mohon isi nomor telepon yang valid (hanya angka, 8–15 digit).">Please enter a valid phone number (digits only, 8–15 digits).</span>
+        </div>
+
+        <button class="btn btn-solid reg-submit" type="submit" id="regSubmit">
+          <span data-lang-id="Kirim Pendaftaran">Submit Registration</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="reg-note" data-lang-id="Datamu langsung terkirim ke panitia ATV melalui Google Forms.">Your data goes directly to the ATV committee via Google Forms.</p>
+      </form>
+
+      <div class="reg-success" id="regSuccess">
+        <div class="ring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 data-lang-id="Kamu terdaftar! ✦">You're in! ✦</h3>
+        <p data-lang-id="Pendaftaran diterima. Panitia ATV akan segera menghubungimu.">Registration received. The ATV committee will be in touch soon.</p>
+        <div style="margin-top:1.8rem">
+          <a class="btn btn-ghost" href="/"><span data-lang-id="Kembali ke Beranda">Back to Home</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand" data-reveal>
+        <a class="brand" href="/" aria-label="ATV home">
+          <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="url(#gmark2)"/>
+            <circle cx="27" cy="26" r="11" stroke="#1D0F04" stroke-width="5" fill="none"/>
+            <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
+            <defs><linearGradient id="gmark2" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
+          </svg>
+          <span><b>ATV</b><small>Auditor's Transformation Venture</small></span>
+        </a>
+        <p data-lang-id="Acara Audit Terbesar dan Tertua yang Diselenggarakan oleh Mahasiswa Akuntansi FEB UI. <span class='hash'>#ActualizingTheVision</span>">The Biggest and The Oldest Audit Event Held by Accounting Students of FEB UI.
+        <span class="hash">#ActualizingTheVision</span></p>
+      </div>
+
+      <div data-reveal>
+        <h4 class="f-h" data-lang-id="Alamat">Address</h4>
+        <p class="f-addr">Fakultas Ekonomi dan Bisnis<br>Universitas Indonesia, Depok</p>
+      </div>
+
+      <div data-reveal>
+        <h4 class="f-h" data-lang-id="Ikuti Kami">Follow Us</h4>
+        <div class="socials">
+          <a href="https://instagram.com/atvfebui" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+            @atvfebui
+          </a>
+          <a href="https://www.tiktok.com/@atvfebui" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2 1.8 3.6 3.9 3.9v3.1c-1.5 0-2.9-.5-3.9-1.2v6.5c0 3.6-2.9 6.2-6.3 6.2A6.1 6.1 0 0 1 4 15.4c0-3.4 2.7-6.1 6.1-6.1.3 0 .7 0 1 .1v3.2a2.9 2.9 0 0 0-1-.2 2.9 2.9 0 1 0 2.9 3V3h3.6z"/></svg>
+            @atvfebui
+          </a>
+          <a href="https://www.youtube.com/@atvfebui25" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.6.5a2.8 2.8 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5zM9.8 15.5v-7l6 3.5-6 3.5z"/></svg>
+            @atvfebui25
+          </a>
+          <a href="#" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8a.6.6 0 0 0 .6.6h16.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6zM8.3 18.4H5.7V9.7h2.6v8.7zM7 8.5a1.6 1.6 0 1 1 0-3.1 1.6 1.6 0 0 1 0 3.1zm11.4 9.9h-2.6v-4.3c0-1 0-2.3-1.4-2.3s-1.7 1.1-1.7 2.3v4.3h-2.6V9.7h2.5v1.2h.1a2.8 2.8 0 0 1 2.5-1.4c2.6 0 3.2 1.8 3.2 4v4.9z"/></svg>
+            ATV FEB UI
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="f-h" data-lang-id="Hubungi Kami" style="text-align:center;margin-top:3.4rem">Contact Us</h4>
+    <div class="contact-grid">
+      <div class="pic-card" data-reveal>
+        <b>Natan</b><em data-lang-id="Informasi &amp; Pendaftaran">Information &amp; Registration</em>
+        <a href="tel:+6287878775046"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>087878775046</a>
+        <a href="mailto:inreg.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>inreg.atvfebui@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Alda</b><em data-lang-id="Kompetisi">Competition</em>
+        <a href="tel:+6285161837128"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>085161837128</a>
+        <a href="mailto:competitionatv25@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>competitionatv25@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Woro</b><em data-lang-id="Acara">Event</em>
+        <a href="tel:+6281586659365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>081586659365</a>
+        <a href="mailto:atvfebui.event@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>atvfebui.event@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Dona</b><em>Sponsorship &amp; In-Kind</em>
+        <a href="tel:+62895412108592"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>0895412108592</a>
+        <a href="mailto:sponsorshipthe25thatv@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>sponsorshipthe25thatv@gmail.com</a>
+      </div>
+      <div class="pic-card" data-reveal>
+        <b>Mardan</b><em data-lang-id="Pemasaran">Marketing</em>
+        <a href="tel:+6282256302385"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>082256302385</a>
+        <a href="mailto:marketing.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>marketing.atvfebui@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> Auditor's Transformation Venture. <span data-lang-id="Hak cipta dilindungi.">All rights reserved.</span></span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="/scripts/site.js"></script>
+<script>
+/* ================================================================
+   GOOGLE FORM CONNECTION — EDIT THESE 4 LINES ONLY
+   How to get them: see the step-by-step guide from Claude.
+   ================================================================ */
+var GF = {
+  action: "https://docs.google.com/forms/d/e/1FAIpQLSfrY_Jzn-IZ5SVL8zfYPAa2CPwFgAxedUlhkPsrbp5rV_CDFg/formResponse",
+  name:   "entry.631687560",
+  email:  "entry.26471914",
+  phone:  "entry.327102225"
+};
+/* ================================================================ */
+
+(function () {
+  'use strict';
+  var form = document.getElementById('regForm');
+  var success = document.getElementById('regSuccess');
+  var btn = document.getElementById('regSubmit');
+  if (!form) return;
+
+  function setInvalid(id, bad) {
+    document.getElementById(id).classList.toggle('invalid', bad);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var name = document.getElementById('inName').value.trim();
+    var email = document.getElementById('inEmail').value.trim();
+    var phone = document.getElementById('inPhone').value.replace(/[\s\-().]/g, '');
+
+    var badName = name.length < 2;
+    var badEmail = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    var badPhone = !/^\+?\d{8,15}$/.test(phone);
+
+    setInvalid('fName', badName);
+    setInvalid('fEmail', badEmail);
+    setInvalid('fPhone', badPhone);
+    if (badName || badEmail || badPhone) return;
+
+    if (GF.action.indexOf('YOUR_FORM_ID') !== -1) {
+      alert('Google Form is not connected yet — the committee needs to fill in the GF config in register.html.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+    var lbl = btn.querySelector('span');
+    if (lbl) lbl.textContent = (document.documentElement.getAttribute('lang') === 'id') ? 'Mengirim…' : 'Submitting…';
+
+    var params = new URLSearchParams();
+    params.append(GF.name, name);
+    params.append(GF.email, email);
+    params.append(GF.phone, phone);
+
+    // Google Forms doesn't send CORS headers, so we fire-and-forget with no-cors.
+    fetch(GF.action, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    }).catch(function () { /* opaque response expected — ignore */ })
+      .finally(function () {
+        form.classList.add('hide');
+        success.classList.add('show');
+      });
+  });
+})();
+</script>
+</body>
+</html>
