@@ -41,16 +41,17 @@
         <path d="M34 35 L47 50 L41 54 L31 38 Z" fill="#1D0F04"/>
         <defs><linearGradient id="gmark" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#FFD666"/><stop offset="1" stop-color="#C97B12"/></linearGradient></defs>
       </svg>
-      <span><b>ATV</b><small>The 25th · FEB UI</small></span>
+      <span><b><span class="t-short">ATV</span><span class="t-full">Auditor's Transformation Venture</span></b><small>The 25th · FEB UI</small></span>
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links">
-        <li><a href="/#vision">Vision</a></li>
-        <li><a href="/#events">Events</a></li>
-        <li><a href="/#timeline">Timeline</a></li>
-        <li><a href="/articles.html" class="active">Articles</a></li>
-        <li><a href="/#sponsors">Sponsors</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/#vision" data-lang-id="Visi">Vision</a></li>
+        <li><a href="/#events" data-lang-id="Acara">Events</a></li>
+        <li><a href="/#timeline" data-lang-id="Linimasa">Timeline</a></li>
+        <li><a href="/articles.html" class="active" data-lang-id="Artikel">Articles</a></li>
+        <li><a href="/#sponsors" data-lang-id="Sponsor">Sponsors</a></li>
+        <li><a href="/#contact" data-lang-id="Kontak">Contact</a></li>
+        <li><a href="/register.html" data-lang-id="Daftar">Register</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -58,21 +59,22 @@
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a class="btn btn-solid" href="/#contact" data-magnetic>Register
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language between English and Indonesian">
+        <span class="l-en active">EN</span><span class="l-sep">/</span><span class="l-id">ID</span>
+      </button>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <div class="m-menu" id="mMenu">
-  <a href="/#vision" style="--i:0"><i>01</i>Vision</a>
-  <a href="/#events" style="--i:1"><i>02</i>Events</a>
-  <a href="/#timeline" style="--i:2"><i>03</i>Timeline</a>
-  <a href="/articles.html" style="--i:3"><i>04</i>Articles</a>
-  <a href="/#sponsors" style="--i:4"><i>05</i>Sponsors</a>
-  <a href="/#contact" style="--i:5"><i>06</i>Contact</a>
+  <a href="/#vision" style="--i:0"><i>01</i><span data-lang-id="Visi">Vision</span></a>
+  <a href="/#events" style="--i:1"><i>02</i><span data-lang-id="Acara">Events</span></a>
+  <a href="/#timeline" style="--i:2"><i>03</i><span data-lang-id="Linimasa">Timeline</span></a>
+  <a href="/articles.html" style="--i:3"><i>04</i><span data-lang-id="Artikel">Articles</span></a>
+  <a href="/#sponsors" style="--i:4"><i>05</i><span data-lang-id="Sponsor">Sponsors</span></a>
+  <a href="/#contact" style="--i:5"><i>06</i><span data-lang-id="Kontak">Contact</span></a>
+  <a href="/register.html" style="--i:6"><i>07</i><span data-lang-id="Daftar">Register</span></a>
   <p class="tagline">#ActualizingTheVision — The 25th ATV</p>
 </div>
 
@@ -81,9 +83,9 @@
 <section class="section articles" id="articles-top" style="padding-top:9.5rem">
   <div class="wrap">
     <div class="section-head center" data-reveal>
-      <span class="eyebrow">SATVRDAY Series</span>
-      <h2 class="h2">All <em>Articles</em></h2>
-      <p class="lead">Audit takes on real-world cases — written by FEB UI students, served every SATVRDAY.</p>
+      <span class="eyebrow" data-lang-id="Serial SATVRDAY">SATVRDAY Series</span>
+      <h2 class="h2" data-lang-id="Semua <em>Artikel</em>">All <em>Articles</em></h2>
+      <p class="lead" data-lang-id="Ulasan audit atas kasus dunia nyata — ditulis oleh mahasiswa FEB UI, hadir setiap SATVRDAY.">Audit takes on real-world cases — written by FEB UI students, served every SATVRDAY.</p>
     </div>
 
     <div class="art-grid">
@@ -104,9 +106,9 @@
             28 February 2026
           </span>
           <h3>The Silent Crisis of Mount Gede Pangrango: A Failure of Environmental Compliance</h3>
-          <p class="art-authors"><b>Authors:</b> Rafael Lindung Saptaga, Nikita Virya Atmadja</p>
+          <p class="art-authors"><b data-lang-id="Penulis:">Authors:</b> Rafael Lindung Saptaga, Nikita Virya Atmadja</p>
           <div class="art-foot">
-            <a class="art-read" href="/the-silent-crisis-of-mount-gede-pangrango-a-failure-of-environmental-compliance" aria-label="Read: The Silent Crisis of Mount Gede Pangrango">Read
+            <a class="art-read" href="/the-silent-crisis-of-mount-gede-pangrango-a-failure-of-environmental-compliance" aria-label="Read: The Silent Crisis of Mount Gede Pangrango"><span data-lang-id="Baca">Read</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
             </a>
             <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
@@ -129,9 +131,9 @@
             19 January 2026
           </span>
           <h3>Crypto on the Balance Sheet: Auditing Digital Assets After U.S. Regulatory Shifts</h3>
-          <p class="art-authors"><b>Authors:</b> Muhammad Farriz Al'Amin, Hermajesty Najwa Prasojo</p>
+          <p class="art-authors"><b data-lang-id="Penulis:">Authors:</b> Muhammad Farriz Al'Amin, Hermajesty Najwa Prasojo</p>
           <div class="art-foot">
-            <a class="art-read" href="/crypto-on-the-balance-sheet-auditing-digital-assets-after-us-regulatory-shifts" aria-label="Read: Crypto on the Balance Sheet">Read
+            <a class="art-read" href="/crypto-on-the-balance-sheet-auditing-digital-assets-after-us-regulatory-shifts" aria-label="Read: Crypto on the Balance Sheet"><span data-lang-id="Baca">Read</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
             </a>
             <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
@@ -154,9 +156,9 @@
             27 December 2025
           </span>
           <h3>Auditing The Louvre Heist: When Internal Control Falls Short</h3>
-          <p class="art-authors"><b>Authors:</b> Ahmad Yahya Zan, Graceda Tiandi Liangga</p>
+          <p class="art-authors"><b data-lang-id="Penulis:">Authors:</b> Ahmad Yahya Zan, Graceda Tiandi Liangga</p>
           <div class="art-foot">
-            <a class="art-read" href="/auditing-the-louvre-heist-when-internal-control-falls-short" aria-label="Read: Auditing The Louvre Heist">Read
+            <a class="art-read" href="/auditing-the-louvre-heist-when-internal-control-falls-short" aria-label="Read: Auditing The Louvre Heist"><span data-lang-id="Baca">Read</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
             </a>
             <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
@@ -179,9 +181,9 @@
             23 November 2025
           </span>
           <h3>Examining Audit Complexity in the Evolving SPAC Merger Process</h3>
-          <p class="art-authors"><b>Authors:</b> Muhammad Saify Ilmi, Aji Maulana Mukti</p>
+          <p class="art-authors"><b data-lang-id="Penulis:">Authors:</b> Muhammad Saify Ilmi, Aji Maulana Mukti</p>
           <div class="art-foot">
-            <a class="art-read" href="/examining-audit-complexity-in-the-evolving-spac-merger-process" aria-label="Read: Examining Audit Complexity in the SPAC Merger Process">Read
+            <a class="art-read" href="/examining-audit-complexity-in-the-evolving-spac-merger-process" aria-label="Read: Examining Audit Complexity in the SPAC Merger Process"><span data-lang-id="Baca">Read</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
             </a>
             <span class="art-faculty">Faculty of Economics and Business, Universitas Indonesia</span>
@@ -209,17 +211,17 @@
           </svg>
           <span><b>ATV</b><small>Auditor's Transformation Venture</small></span>
         </a>
-        <p>The Biggest and The Oldest Audit Event Held by Accounting Students of FEB UI.
+        <p data-lang-id="Acara Audit Terbesar dan Tertua yang Diselenggarakan oleh Mahasiswa Akuntansi FEB UI. <span class='hash'>#ActualizingTheVision</span>">The Biggest and The Oldest Audit Event Held by Accounting Students of FEB UI.
         <span class="hash">#ActualizingTheVision</span></p>
       </div>
 
       <div data-reveal>
-        <h4 class="f-h">Address</h4>
+        <h4 class="f-h" data-lang-id="Alamat">Address</h4>
         <p class="f-addr">Fakultas Ekonomi dan Bisnis<br>Universitas Indonesia, Depok</p>
       </div>
 
       <div data-reveal>
-        <h4 class="f-h">Follow Us</h4>
+        <h4 class="f-h" data-lang-id="Ikuti Kami">Follow Us</h4>
         <div class="socials">
           <a href="https://instagram.com/atvfebui" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
@@ -241,20 +243,20 @@
       </div>
     </div>
 
-    <h4 class="f-h" style="text-align:center;margin-top:3.4rem">Contact Us</h4>
+    <h4 class="f-h" data-lang-id="Hubungi Kami" style="text-align:center;margin-top:3.4rem">Contact Us</h4>
     <div class="contact-grid">
       <div class="pic-card" data-reveal>
-        <b>Natan</b><em>Information &amp; Registration</em>
+        <b>Natan</b><em data-lang-id="Informasi &amp; Pendaftaran">Information &amp; Registration</em>
         <a href="tel:+6287878775046"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>087878775046</a>
         <a href="mailto:inreg.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>inreg.atvfebui@gmail.com</a>
       </div>
       <div class="pic-card" data-reveal>
-        <b>Alda</b><em>Competition</em>
+        <b>Alda</b><em data-lang-id="Kompetisi">Competition</em>
         <a href="tel:+6285161837128"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>085161837128</a>
         <a href="mailto:competitionatv25@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>competitionatv25@gmail.com</a>
       </div>
       <div class="pic-card" data-reveal>
-        <b>Woro</b><em>Event</em>
+        <b>Woro</b><em data-lang-id="Acara">Event</em>
         <a href="tel:+6281586659365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>081586659365</a>
         <a href="mailto:atvfebui.event@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>atvfebui.event@gmail.com</a>
       </div>
@@ -264,14 +266,14 @@
         <a href="mailto:sponsorshipthe25thatv@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>sponsorshipthe25thatv@gmail.com</a>
       </div>
       <div class="pic-card" data-reveal>
-        <b>Mardan</b><em>Marketing</em>
+        <b>Mardan</b><em data-lang-id="Pemasaran">Marketing</em>
         <a href="tel:+6282256302385"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>082256302385</a>
         <a href="mailto:marketing.atvfebui@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>marketing.atvfebui@gmail.com</a>
       </div>
     </div>
 
     <div class="f-bottom">
-      <span>© <span id="year">2026</span> Auditor's Transformation Venture. All rights reserved.</span>
+      <span>© <span id="year">2026</span> Auditor's Transformation Venture. <span data-lang-id="Hak cipta dilindungi.">All rights reserved.</span></span>
     </div>
   </div>
 </footer>
